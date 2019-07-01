@@ -1,1 +1,1 @@
-# BG2COOL
+# BG2 😎 COOL
