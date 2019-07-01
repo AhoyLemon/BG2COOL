@@ -1,0 +1,11 @@
+button.toggle.inventory(v-if="inventory.length > 0" @click="toggleDrawer('inventory')")
+  span.count(v-text="inventory.length")
+
+aside.inventory(v-cloak v-show="inventory.length > 0" v-bind:class="{ mobileVisible: (visibleDrawer == 'inventory') }")
+  .header Your Inventory
+  .inner
+    .item.animated.bounceInUp(v-for="item in inventory")
+      a.toggle(v-on:click="foo(item)")
+        .name {{item.name}}
+        .desc(v-if="item.showDesc == true") {{item.desc}}
+        

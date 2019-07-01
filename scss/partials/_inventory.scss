@@ -1,0 +1,33 @@
+aside.inventory { z-index: 2; overflow: hidden;
+  .header { @extend %asideHead; text-align: right; padding-top:8px; }
+  .item { @extend %item; background: linear-gradient(to bottom, #00b4db, #0083b0); }
+
+  .inner {  padding:2rem; overflow-y: scroll; }
+
+  a.toggle { cursor: help; }
+}
+
+
+@media screen and (max-width:$mobile-max) { 
+  
+  aside.inventory { @include position(fixed,0,0,0,0); z-index: $z-aside-mobile; transform: translateX(-102%); transition: transform 1.25s ease;
+    &.mobileVisible { transform:translateX(0); }
+    .header {  margin-bottom: 0; padding-left: 55px; padding-right: 10px; text-align: left;  }
+    .inner { padding:10px; }
+  }
+
+  button.toggle.inventory { background-color:#0083b0; height:40px; width:40px; display: block; border:none; color:white; border-radius: 50%; font-size:20px; line-height: 40px;
+    @include position(fixed,4px,null,null,4px); z-index: $z-drawer-toggle;
+  }
+
+}
+
+
+@media screen and (min-width:$desktop-min) { 
+  aside.inventory { @include position(fixed,0,null,0,0); width:calc(25% - 15px);
+    .header { padding:2rem; }
+    .inner { padding:2em; @include position(absolute,60px,-17px,0,0); }
+  }
+
+  button.toggle.inventory { display: none; }
+}

@@ -1,0 +1,44 @@
+.javascripts
+  
+  script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+
+  if testing
+    script(src="js/libraries/vue.full.js")
+  else
+    script(src="js/libraries/vue.min.js")
+
+  script(src="js/libraries/pnotify.custom.min.js")
+  link(rel="stylesheet" href="css/libraries/pnotify.custom.min.css")
+  script.
+    //------ Pnotify settings & defaults ----------------
+    PNotify.prototype.options.icon = false;
+    var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+    PNotify.prototype.options.stack = stack_bottomright;
+    PNotify.prototype.options.addclass = "stack-bottomright";
+    PNotify.prototype.options.animate.animate = true;
+    PNotify.prototype.options.animate.in_class = 'bounceInDown',
+    PNotify.prototype.options.animate.out_class = 'zoomOutRight';
+    PNotify.prototype.options.width = "460px";
+    PNotify.prototype.options.delay = 4000;
+
+    PNotify.defaultStack = {
+      dir1: 'down',
+      dir2: 'left',
+      firstpos1: 25,
+      firstpos2: 25,
+      spacing1: 36,
+      spacing2: 36,
+      push: 'bottom',
+      context: document.body
+    }
+
+  script(type="text/javascript").
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-15129990-31', 'auto');
+    ga('send', 'pageview');
+
+  script(src="js/min/sisyphus.min.js")

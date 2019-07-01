@@ -1,0 +1,11 @@
+
+<aside class="store" v-cloak="v-cloak" v-if="availableUpgrades.length &gt; 0">
+  <button class="toggle"><span class="count" v-text="availableUpgrades.length"></span></button>
+  <div class="header">Buy Upgrades</div>
+  <div class="animated zoomInDown" v-for="item,i in availableUpgrades" @click="buyItem(i,item)"><a class="item" v-bind:class="{ buyable: score &gt;= item.price}">
+      <div class="name-and-desc">
+        <div class="name">{{item.name}}</div>
+        <div class="desc">{{item.desc}}</div>
+      </div>
+      <div class="price">{{item.price}}</div></a></div>
+</aside>

@@ -1,0 +1,17 @@
+.counter-box { @include position(fixed,null,30px,10px); color:yellow; font-family: $font; border:1px solid currentColor; background:$black;
+  .label { display: block; border-bottom: 1px solid currentColor; text-align: center; text-transform: uppercase; background:yellow; color:$black; }
+  .count { display: block; text-align: center; font-size:300%; line-height: 100%; padding-bottom: 0.1em; }
+}
+
+@media screen and (max-width:$mobile-max) {
+  .counter-box { width:auto;
+    .label { font-size:12px; display: none; }
+    .count { font-size:22px; padding:0.3em 1em; }
+  }
+}
+
+@media screen and (min-width:$desktop-min) {
+  .counter-box { width:auto; min-width: 100px;
+    .count { padding:0.25em 0.5em; }
+  }
+}

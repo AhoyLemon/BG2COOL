@@ -1,0 +1,7 @@
+%item { display: block; padding:1em; color:white; font-family: $font; margin-bottom: 1em;
+
+  background: linear-gradient(to bottom, #ff416c, #ff4b2b); 
+  .name { font-size:125%; font-weight: $bold; }
+}
+
+%asideHead { font-size:180%; color:$white; text-transform: uppercase; font-family: $font; margin-bottom: 1em; font-family: $headline; }

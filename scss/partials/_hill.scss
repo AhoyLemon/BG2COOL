@@ -1,0 +1,83 @@
+body { background:#333; }
+main { font-family: $font; }
+
+$rock: 8vw;
+$desktopScene: ($rock * 5);
+
+.test { height:100px; width: 100px; overflow: visible; z-index: 100; position: relative; display: none;
+  .inner { @include position(absolute,0,null,0,0); width:285%; background-image:url(../svg/background.svg); background-position: bottom left; background-size:contain; background-repeat: no-repeat; background-color:lime; }
+}
+
+@keyframes shift_background {
+  0%      {transform: translateX(0);   }
+  50%   {transform: translateX(-70%); }
+  100%   {transform: translateX(0); }
+}
+
+.scene { position: relative;
+  figure { background:#999; position: relative; overflow: hidden;
+
+    .background { @include position(absolute,0,null,0,0); background-image:url(../svg/background.svg); background-size:cover; background-position: center left; background-repeat: repeat-x; z-index: $z-background;
+      width: 220%; transition:transform 0.75s linear;
+    }
+    .hill { @include position(absolute,0,0,0,0); background-image:url(../svg/hill.svg); background-size:cover; background-position: bottom left; z-index: $z-hill; }
+    .shine { @include position(absolute,0,0,0,0); background-image:url(../svg/shine.svg); background-size:cover; background-position: top right; z-index: $z-shine; }
+
+
+    .sisyphys { display: block; position: absolute; z-index: $z-sisyphus; cursor: pointer; transition:all 0.3s ease; color:black; background:transparent; border:none; padding:0; outline:none;
+      &::-moz-focus-inner { border:0; }
+      .st0{ fill:#efa547}.st1{fill:#0b191e}.st2{fill:#f8c977} 
+      //background-image:url(../svg/pusher.svg); background-position: bottom right; background-size:contain; background-repeat: no-repeat;
+      //svg * { fill:currentColor; }
+      //&:hover svg * { fill:darkblue; }
+    }
+    .rock { width:$rock; height:$rock; position: absolute; background:#ED6F4B; border-radius:50%; transition: all 0.3s ease; transition-delay:0.1s; z-index: $z-rock;
+      &.falling { transition-duration: 2s; transition-timing-function: cubic-bezier(.32,.39,.47,1.04); }
+    }
+
+    .foreground { @include position(absolute,0,null,0,0); width:450%; background-image:url(../svg/foreground.svg); background-size:cover; background-position: bottom left; background-repeat: repeat-x; z-index: $z-foreground; pointer-events: none;
+      //transition:transform 1.2s linear;
+
+      animation-name: shift_background; animation-duration: 1000s; animation-iteration-count: infinite; animation-timing-function: linear;
+      
+
+
+    }
+  }
+
+  .pillar { @include position(absolute,0); z-index: $z-pillar;
+    &.one { left:0; transform: translate(-75%,-5%); }
+    &.two { right:0; transform: translate(75%,-4%); }
+  }
+
+
+  figcaption { color:#272128;  text-align: center; font-family: $headline; background-image:url(../svg/placard.svg); background-position: center; background-size:contain; background-repeat: no-repeat; height: 3em; 
+    @include flex-center(); line-height: 75%; position: relative; z-index: $z-figcaption; transform: translateY(-25%);
+    //position: absolute;
+  }
+}
+
+
+
+@media screen and (max-width:$mobile-max) {
+  .scene { margin-top:50px; 
+    figure { height:99vw; }
+    figcaption { height:14vw; font-size:4.5vw; }
+  }
+
+}
+
+@media screen and (min-width:$desktop-min) {
+  main { @include flex-center(); height: 99vh; }
+
+  .scene { width:$desktopScene;
+    figure { height:$desktopScene; }
+  }
+
+  .pillar {  height: ($desktopScene * 1.2); width: ($desktopScene / 3.8); }
+
+  figcaption { height:3em; font-size:2.2vw;
+
+  }
+
+}
