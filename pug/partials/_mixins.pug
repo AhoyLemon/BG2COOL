@@ -1,0 +1,163 @@
+mixin timeStamp()
+  - var d = new Date()
+  - var m = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+  time 
+    = m[d.getMonth()] 
+    |  
+    = d.getDate()
+    | , 
+    = d.getFullYear() 
+  //- var lastUpdated = d.getFullYear() + '-' + (d.getMonth()<10?'0':'') + d.getMonth() + '-' + (d.getDate()<10?'0':'') + d.getDate() + '@' + (d.getHours()<10?'0':'') + d.getHours() + ':' + (d.getMinutes()<10?'0':'') + d.getMinutes() + ':' + (d.getSeconds()<10?'0':'') + d.getSeconds()  
+
+
+mixin formatDate(d)
+  - var allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+  - var MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+  - var e = d.split("-");
+  time(datetime=d)
+    = MonthAbbr[parseInt(e[1] - 1)]
+    |  
+    = e[2]
+    | , 
+    = e[0]
+
+
+mixin link(title,url)
+  a(href=url target="_blank" nofollow noopener)= title
+
+mixin card(title, url, background, logo, launched)
+  figure.card
+    a.flipper(href=url)
+      - var styl
+      if background.includes('#')
+        - styl = "background-color:" + background
+      else if background.includes('.jpg')
+        - styl = "background-image:url(img/"+background+")"
+      .front(style=styl)
+        if logo.includes('svg')
+          img.logo(src="svg/"+logo)
+        else
+          img.logo(src="img/"+logo)
+      .back
+        h3.title= title
+        block
+
+mixin prevTalk(title,img,d,city)
+  .talk
+    figure(style="background-image:url(img/talks/"+img+")")
+    figcaption
+      .conference #{title}
+      time #{d}
+      .city #{city}
+
+mixin talkSlider(w)
+  if w == "upcoming"
+    .upcoming-conferences.conferences
+      .slider-header
+        h2 
+          | UPCOMING TALKS 
+          sub (#{upcomingTalks.length})
+        .more-holder
+          a(href="talks.html") see all
+      .upcoming-conference-carousel
+        each t,index in upcomingTalks
+          .conference.upcoming
+            .name
+              a(href=t.url target="_blank")= t.name
+            .location
+              if t.city && t.state
+                span #{t.city}, #{t.state}
+              else if t.city && t.country
+                span #{t.city}, #{t.country}
+            .date
+              +formatDate(t.date)
+            .presenting Presenting:
+            if t.talks
+              ul.multiple-talks
+                each u,uindex in t.talks
+                  li.talk= u
+            else if t.talk
+              ul
+                li.talk= t.talk
+
+  else if w == 'previous'
+    .previous-conferences.conferences
+      .slider-header
+        h2 
+          | PREVIOUS TALKS 
+          sub (#{previousTalks.length})
+        .more-holder
+          a(href="talks.html#previous") see all
+      .previous-conference-carousel
+        each t,index in previousTalks
+          - let p = ""
+          if t.pics
+            - p = "img/talks/" + t.pics[0]
+          else if t.img
+            - p = "img/talks/" + t.img
+          figure.conference.prev(style="background-image:url("+p+")")
+            figcaption
+              .name
+                a(href=t.url target="_blank")= t.name
+              .location
+                if t.city && t.state
+                  span #{t.city}, #{t.state}
+                else if t.city && t.country
+                  span #{t.city}, #{t.country}
+              .date
+                +formatDate(t.date)
+
+mixin projectSummary(s)
+  - let bgStyle = ""
+  - let fgImage = ""
+  - let bgiFile = ""
+  if s.bgColor
+    - bgStyle = "background-color:" + s.bgColor +"; "
+  else if s.bgImage
+    if s.bgImage.includes("svg")
+      - bgiFile = "svg/"+s.bgImage
+    else if s.bgImage
+      - bgiFile = "img/"+s.bgImage
+    - bgStyle = "background-image:url("+bgiFile+"); "
+  else if s.bgGradient
+    - bgStyle = "background:"+s.bgGradient+"; "
+
+  if s.fgImage
+    if s.fgImage.includes("svg")
+      - fgImage = "svg/"+s.fgImage
+    else if s.fgImage
+      - fgImage = "img/"+s.fgImage
+
+  .project
+    figure(style=bgStyle)
+      if fgImage != ""
+        a(href=s.url)
+          img.logo(src=fgImage)
+      else if s.bgImage
+        a.absolute-link(href=s.url style=bgStyle)
+          //-img.logo(src=bgiFile)
+    figcaption
+      .title
+        a(href=s.url)= s.title
+      if (s.subhead)
+        .subhead= s.subhead
+      else if (s.type)
+        .type= s.type
+
+      .description !{s.description}
+
+    .detail-row
+      //-if (s.type)
+        .detail
+          .label &nbsp;
+          .value= s.type
+      if (s.launched)
+        .detail.launched
+          .label LAUNCHED
+          .value
+            +formatDate(s.launched)
+      if (s.retired)
+        .detail.retired
+          .label RETIRED
+          .value
+            +formatDate(s.retired)
