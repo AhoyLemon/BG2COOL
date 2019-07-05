@@ -6,6 +6,7 @@
 - var d = new Date()
 - var lastUpdated = d.getFullYear() + '-' + (d.getMonth()<10?'0':'') + d.getMonth() + '-' + (d.getDate()<10?'0':'') + d.getDate() + '@' + (d.getHours()<10?'0':'') + d.getHours() + ':' + (d.getMinutes()<10?'0':'') + d.getMinutes() + ':' + (d.getSeconds()<10?'0':'') + d.getSeconds()
 
+include partials/_patterns
 include partials/_mixins
 
 doctype html
@@ -14,61 +15,25 @@ html(lang="en")
     title BG2 😎 COOL
     link(href="https://fonts.googleapis.com/css?family=Barriecito|Flamenco|Gaegu|Permanent+Marker|Righteous&display=swap" rel="stylesheet")
     link(href="css/bg2cool.css" rel="stylesheet")
+    
   body
-    section
-      article.pattern
-        figure(style="background-image:url(patterns/ellen-schofield/AstroturfArgyle.gif)")
-          button(@click="setBackground(img)") Try It
-        figcaption
-          h2.name Astroturf Argyle
-          cite 
-            | by 
-            a(href="#") Ellen Schofield
-          .description
-            p Praesent vestibulum scelerisque eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          .added
-            | Added on 
-            +formatDate('2019-07-03')
-          .tags
-            a(href="#") grass
-            a(href="#") diamond
-            a(href="#") repeating
-      
-      article.pattern
-        figure(style="background-image:url(patterns/ellen-schofield/GoldChainsOnVelvet.gif)")
-          button(@click="setBackground(img)") Try It
-        figcaption
-          h2.name Gold Chains On Velvet
-          cite 
-            | by 
-            a(href="#") Ellen Schofield
-          .description
-            p Praesent vestibulum scelerisque eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          .added
-            | Added on 
-            +formatDate('2019-07-03')
-          .tags
-            a(href="#") gold
-            a(href="#") chains
-            a(href="#") velvet
+    #app(v-bind:style="{'background-image': 'url(patterns/ellen-schofield/'+bgPattern+')'}")
+      section
+        each pattern,index in allPatterns
+          article.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}")
+            figure(style="background-image:url(patterns/ellen-schofield/"+pattern.file+")")
+              button(v-on:click="setPattern("+JSON.stringify(pattern)+")") TRY IT
+            figcaption
+              h2.name= pattern.title
+              cite
+                | by 
+                a(href=pattern.author.url)= pattern.author.name
+              .description !{pattern.description}
+              .added
+                | Added on
+                +formatDate(pattern.date)
+              .tags
+                each tag,i in pattern.tags
+                  a(href="#")= tag
 
-      article.pattern
-        figure(style="background-image:url(patterns/ellen-schofield/VaporwaveTerrazzo.gif)")
-          button(@click="setBackground(img)") Try It
-        figcaption
-          h2.name Vaporwave Terrazzo
-          cite 
-            | by 
-            a(href="#") Ellen Schofield
-          .description
-            p Praesent vestibulum scelerisque eleifend. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-          .added
-            | Added on 
-            +formatDate('2019-07-03')
-          .tags
-            a(href="#") bowling
-            a(href="#") animated
-            a(href="#") terrazzo
-
-
-
+    include partials/_javascripts
