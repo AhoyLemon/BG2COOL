@@ -1,8 +1,7 @@
 body { background:#ddd; }
+$fontSize: 16px;
 
-$fontSize:20px;
-
-#app { padding-top:40px; background-attachment: fixed; padding-bottom: 40px; }
+/*
 article.pattern { width:720px; margin-left: auto; margin-right: auto;   margin-bottom: 40px; box-shadow:-0.5em 0.3em 0.3em rgba($black,0.75);
   font-family: 'Flamenco', cursive;
   font-size:$fontSize;
@@ -32,5 +31,47 @@ article.pattern { width:720px; margin-left: auto; margin-right: auto;   margin-b
     figcaption { box-shadow: unset; box-shadow: 0 0 20px black, inset 0 0 10px black; background:#ffffcc; }
     .name { text-decoration: underline; }
     //figcaption { grid-column: span 2; }
+  }
+}
+*/
+
+
+// Horitzontal Scrolling
+main { min-height: 98vh; padding-top:40px; background-attachment: fixed; padding-bottom: 40px; @include flex-center(); }
+section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
+  article.pattern { flex: 0 0 auto; margin-right:40px; width:260px; @include flex-container(column); font-family: 'Flamenco', cursive; font-size:$fontSize;
+    figure { height:260px; }
+
+    figure { @include flex-center(); background-position: center; box-shadow: inset 0 0.3em 0.25em rgba($black,0.75); background-size: 50%;
+      button { background:#ccccff; color:$black; border:none; border-radius: 2px; padding:0.5em 1em; font-size:26px; font-family: 'Barriecito', cursive; text-transform: uppercase; opacity: 0; cursor: pointer; }
+      &:hover {
+        button { opacity: 1; transition: all 0.3s ease; }
+      }
+    }
+
+
+    figcaption { background:white; flex-grow: 1; padding:20px; box-shadow: inset -0.5em 0 0.5em rgba($black,0.3); background:white;
+      .name { font-size:($fontSize * 1.8); margin-bottom: 15px; font-family: 'Barriecito', cursive;  }
+      .description { margin-top: $fontSize; max-height: 2em; overflow-x: hidden;  }
+      .added { margin-top: $fontSize; margin-bottom: $fontSize; }
+      .tags { 
+        a { display: inline-block; padding: 0.5em; background:#ccccff; color:$black; text-decoration: none; margin-right: 10px; border-radius: 2px; font-size:80%;
+          &:hover { background:$black; color:#ccccff; }
+        }
+      }
+
+      @include flex-container(column);
+      .everything-but-tags { flex-grow:1; }
+      .tags { flex-grow:0; }
+    
+
+    }
+
+
+    &.current { box-shadow: unset; 
+      figure { box-shadow: unset; opacity: 0; }
+      figcaption { box-shadow: unset; box-shadow: 0 0 20px black, inset 0 0 10px black; background:#ffffcc; }
+      .name { text-decoration: underline; }
+    }
   }
 }
