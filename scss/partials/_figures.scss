@@ -36,11 +36,13 @@ article.pattern { width:720px; margin-left: auto; margin-right: auto;   margin-b
 */
 
 
+$boxSize:320px;
+
 // Horitzontal Scrolling
-main { min-height: 98vh; padding-top:40px; background-attachment: fixed; padding-bottom: 40px; @include flex-center(); }
+main { padding-top:40px; background-attachment: fixed; padding-bottom: 40px; @include flex-center(); }
 section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
-  article.pattern { flex: 0 0 auto; margin-right:40px; width:260px; @include flex-container(column); font-family: 'Flamenco', cursive; font-size:$fontSize;
-    figure { height:260px; }
+  article.pattern { flex: 0 0 auto; margin-right:80px; width:$boxSize; @include flex-container(column); font-family: 'Flamenco', cursive; font-size:$fontSize;
+    figure { height:$boxSize; }
 
     figure { @include flex-center(); background-position: center; box-shadow: inset 0 0.3em 0.25em rgba($black,0.75); background-size: 50%;
       button { background:#ccccff; color:$black; border:none; border-radius: 2px; padding:0.5em 1em; font-size:26px; font-family: 'Barriecito', cursive; text-transform: uppercase; opacity: 0; cursor: pointer; }
@@ -51,12 +53,12 @@ section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
 
 
     figcaption { background:white; flex-grow: 1; padding:20px; box-shadow: inset -0.5em 0 0.5em rgba($black,0.3); background:white;
-      .name { font-size:($fontSize * 1.8); margin-bottom: 15px; font-family: 'Barriecito', cursive;  }
+      .name { font-size:($fontSize * 1.8); margin-bottom: 15px; text-align: center; font-family: $headline; }
       .description { margin-top: $fontSize; max-height: 2em; overflow-x: hidden;  }
       .added { margin-top: $fontSize; margin-bottom: $fontSize; }
-      .tags { 
-        a { display: inline-block; padding: 0.5em; background:#ccccff; color:$black; text-decoration: none; margin-right: 10px; border-radius: 2px; font-size:80%;
-          &:hover { background:$black; color:#ccccff; }
+      .tags {
+        a { display: inline-block; padding: 0.5em; background:#ccccff; color:$black; text-decoration: none; margin-right: 10px; border-radius: 2px; font-size:80%; margin-bottom: 10px;
+          &:hover { background:$black; color:#ccccff;  }
         }
       }
 
@@ -67,11 +69,54 @@ section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
 
     }
 
+    .name { text-align: center; color:white; font-family: $headline; text-shadow: 5px 5px 2px #111, -1px -1px 0 #111;  font-size:28px; }
+    cite { margin-bottom: 1em; display: block; }
+
+
+    figure { position: relative; cursor: pointer;
+
+      .button-holder { background:lime; @include position(absolute,0,0,0,0); opacity: 0.5; @include flex-center(); }
+      &:hover { 
+        .name { text-decoration: underline; }
+      }
+    }
+
+    //-.name { font-family: $headline; color:$white; font-size:180%; background:$black; padding:10px; }
+    //-cite { margin-bottom: 1em; display: block; }
+
 
     &.current { box-shadow: unset; 
-      figure { box-shadow: unset; opacity: 0; }
-      figcaption { box-shadow: unset; box-shadow: 0 0 20px black, inset 0 0 10px black; background:#ffffcc; }
-      .name { text-decoration: underline; }
+      //figure { box-shadow: unset; opacity: 0; }
+      //figcaption { box-shadow: unset; box-shadow: 0 0 20px black, inset 0 0 10px black; background:#ffffcc; }
+      //.name { text-decoration: underline; }
+      figure { background:transparent !important; box-shadow: unset;
+        .name { transform: scale(1.1); }
+      }
+      figcaption { opacity: 0; }
     }
   }
+}
+
+
+
+.current-pattern { background:lime; @include position(fixed,null,null,0,0); font-size:18px; box-shadow: 10px 0 5px black;
+  background:#fff; padding:15px;  font-family: 'Flamenco', serif; padding-top:80px;
+  @include position(fixed,0,null,0,0);
+  width:280px; 
+  .name { font-size:240%; }
+
+  .author-holder { display: block; margin-top:20px;
+    .author { font-weight: bold; }
+  }
+
+  .tags {margin-top:30px;
+    label { font-weight: bold; margin-bottom: 5px; display:block; }
+    .tag { display: block; margin-bottom:5px; }
+  }
+
+  .download-holder { font-size:38px; font-weight: bold; margin-top:80px;
+
+  }
+}
+main { height:calc(100vh);
 }

@@ -2576,6 +2576,26 @@ svg {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
+@font-face {
+  font-family: 'grobold';
+  src: url("../fonts/grobold/grobold.ttf"); }
+
+@font-face {
+  font-family: 'fluo';
+  src: url("../fonts/fluo_gums/fluo.ttf"); }
+
+@font-face {
+  font-family: 'jakarta';
+  src: url("../fonts/jakarta_legal_aid_institute/jakarta.otf"); }
+
+@font-face {
+  font-family: 'ShePersisted';
+  src: url("../fonts/kg_she_persisted/KGShePersisted.ttf"); }
+
+@font-face {
+  font-family: 'kraash';
+  src: url("../fonts/kraash/KraashBlack.ttf"); }
+
 [v-cloak] {
   display: none !important; }
 
@@ -2620,7 +2640,6 @@ article.pattern { width:720px; margin-left: auto; margin-right: auto;   margin-b
 }
 */
 main {
-  min-height: 98vh;
   padding-top: 40px;
   background-attachment: fixed;
   padding-bottom: 40px;
@@ -2655,8 +2674,8 @@ section.patterns {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    margin-right: 40px;
-    width: 260px;
+    margin-right: 80px;
+    width: 320px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-flex;
@@ -2676,7 +2695,7 @@ section.patterns {
     font-family: 'Flamenco', cursive;
     font-size: 16px; }
     section.patterns article.pattern figure {
-      height: 260px; }
+      height: 320px; }
     section.patterns article.pattern figure {
       display: -webkit-box;
       display: -webkit-flex;
@@ -2745,7 +2764,8 @@ section.patterns {
       section.patterns article.pattern figcaption .name {
         font-size: 28.8px;
         margin-bottom: 15px;
-        font-family: 'Barriecito', cursive; }
+        text-align: center;
+        font-family: "kraash"; }
       section.patterns article.pattern figcaption .description {
         margin-top: 16px;
         max-height: 2em;
@@ -2761,7 +2781,8 @@ section.patterns {
         text-decoration: none;
         margin-right: 10px;
         border-radius: 2px;
-        font-size: 80%; }
+        font-size: 80%;
+        margin-bottom: 10px; }
         section.patterns article.pattern figcaption .tags a:hover {
           background: #212121;
           color: #ccccff; }
@@ -2773,18 +2794,98 @@ section.patterns {
         -webkit-box-flex: 0;
         -ms-flex-positive: 0;
         flex-grow: 0; }
+    section.patterns article.pattern .name {
+      text-align: center;
+      color: white;
+      font-family: "kraash";
+      text-shadow: 5px 5px 2px #111, -1px -1px 0 #111;
+      font-size: 28px; }
+    section.patterns article.pattern cite {
+      margin-bottom: 1em;
+      display: block; }
+    section.patterns article.pattern figure {
+      position: relative;
+      cursor: pointer; }
+      section.patterns article.pattern figure .button-holder {
+        background: lime;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.5;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+      section.patterns article.pattern figure:hover .name {
+        text-decoration: underline; }
     section.patterns article.pattern.current {
       -webkit-box-shadow: unset;
       box-shadow: unset; }
       section.patterns article.pattern.current figure {
+        background: transparent !important;
         -webkit-box-shadow: unset;
-        box-shadow: unset;
-        opacity: 0; }
+        box-shadow: unset; }
+        section.patterns article.pattern.current figure .name {
+          -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          transform: scale(1.1); }
       section.patterns article.pattern.current figcaption {
-        -webkit-box-shadow: unset;
-        box-shadow: unset;
-        -webkit-box-shadow: 0 0 20px black, inset 0 0 10px black;
-        box-shadow: 0 0 20px black, inset 0 0 10px black;
-        background: #ffffcc; }
-      section.patterns article.pattern.current .name {
-        text-decoration: underline; }
+        opacity: 0; }
+
+.current-pattern {
+  background: lime;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 18px;
+  -webkit-box-shadow: 10px 0 5px black;
+  box-shadow: 10px 0 5px black;
+  background: #fff;
+  padding: 15px;
+  font-family: 'Flamenco', serif;
+  padding-top: 80px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 280px; }
+  .current-pattern .name {
+    font-size: 240%; }
+  .current-pattern .author-holder {
+    display: block;
+    margin-top: 20px; }
+    .current-pattern .author-holder .author {
+      font-weight: bold; }
+  .current-pattern .tags {
+    margin-top: 30px; }
+    .current-pattern .tags label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block; }
+    .current-pattern .tags .tag {
+      display: block;
+      margin-bottom: 5px; }
+  .current-pattern .download-holder {
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: 80px; }
+
+main {
+  height: calc(100vh); }
