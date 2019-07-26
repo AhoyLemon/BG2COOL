@@ -36,15 +36,18 @@ article.pattern { width:720px; margin-left: auto; margin-right: auto;   margin-b
 */
 
 
-$boxSize:320px;
+$boxSize:240px;
 
 // Horitzontal Scrolling
-main { padding-top:40px; background-attachment: fixed; padding-bottom: 40px; @include flex-center(); }
-section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
+main { padding-top:40px; background-attachment: fixed; padding-bottom: 40px; display: flex; overflow-y:hidden; align-items: center; background-color:#212121; }
+section.patterns { 
+
+  .inner-stripe { display: flex; flex-wrap: nowrap; overflow-x: auto; padding-left: 80px; }
+
   article.pattern { flex: 0 0 auto; margin-right:80px; width:$boxSize; @include flex-container(column); font-family: 'Flamenco', cursive; font-size:$fontSize;
     figure { height:$boxSize; }
 
-    figure { @include flex-center(); background-position: center; box-shadow: inset 0 0.3em 0.25em rgba($black,0.75); background-size: 50%;
+    figure { @include flex-center(); background-position: center; box-shadow: inset 0.15em 0.3em 0.25em rgba($black,0.75); background-size: 50%;
       button { background:#ccccff; color:$black; border:none; border-radius: 2px; padding:0.5em 1em; font-size:26px; font-family: 'Barriecito', cursive; text-transform: uppercase; opacity: 0; cursor: pointer; }
       &:hover {
         button { opacity: 1; transition: all 0.3s ease; }
@@ -53,7 +56,7 @@ section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
 
 
     figcaption { background:white; flex-grow: 1; padding:20px; box-shadow: inset -0.5em 0 0.5em rgba($black,0.3); background:white;
-      .name { font-size:($fontSize * 1.8); margin-bottom: 15px; text-align: center; font-family: $headline; }
+      .name { margin-bottom: 15px; text-align: center; font-family: $headline; }
       .description { margin-top: $fontSize; max-height: 2em; overflow-x: hidden;  }
       .added { margin-top: $fontSize; margin-bottom: $fontSize; }
       .tags {
@@ -69,7 +72,7 @@ section.patterns {  display: flex; flex-wrap: nowrap; overflow-x: auto;
 
     }
 
-    .name { text-align: center; color:white; font-family: $headline; text-shadow: 5px 5px 2px #111, -1px -1px 0 #111;  font-size:28px; }
+    .name { text-align: center; color:white; font-family: $headline; text-shadow: 5px 5px 2px #111, -1px -1px 0 #111;  font-size:22px; }
     cite { margin-bottom: 1em; display: block; }
 
 

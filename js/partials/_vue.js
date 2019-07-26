@@ -14,7 +14,7 @@ var app = new Vue({
       self.currentPattern = pattern;
 
       self.activeTitle = pattern.title;
-      self.bgPattern = pattern.file;
+      self.bgPattern = "patterns/"+pattern.folder+"/"+pattern.file;
       console.log(pattern.title);
     }
 

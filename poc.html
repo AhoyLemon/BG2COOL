@@ -7,36 +7,52 @@
   </head>
   <body>
     <div id="app">
-      <main v-bind:style="{'background-image': 'url(patterns/ellen-schofield/'+bgPattern+')'}">
+      <main v-bind:style="{'background-image': 'url('+bgPattern+')'}">
         <section class="patterns">
-          <article class="pattern" v-bind:class="{current: activeTitle == 'Astroturf Argyle'}">
-            <figure style="background-image:url(patterns/ellen-schofield/AstroturfArgyle.gif)">
-              <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Astroturf Argyle&quot;,&quot;file&quot;:&quot;AstroturfArgyle.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;description&quot;:&quot;Have you ever wanted to have a website that's also a golf course that's also an art deco bathroom? Now you can live your dream.&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;grass&quot;,&quot;diamond&quot;,&quot;repeating&quot;]})">
-                <h2 class="name">Astroturf Argyle</h2>
-              </div>
-            </figure>
-          </article>
-          <article class="pattern" v-bind:class="{current: activeTitle == '90s Kitchen Plaid'}">
-            <figure style="background-image:url(patterns/ellen-schofield/90sKitchenPlaid.gif)">
-              <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;90s Kitchen Plaid&quot;,&quot;file&quot;:&quot;90sKitchenPlaid.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-05&quot;,&quot;description&quot;:&quot;It's the 1990's in Suburban America, and you're in a kitchen. Stare at the walls, and try to look away.&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;plaid&quot;,&quot;ivy&quot;,&quot;kitchen&quot;,&quot;wallpaper&quot;]})">
-                <h2 class="name">90s Kitchen Plaid</h2>
-              </div>
-            </figure>
-          </article>
-          <article class="pattern" v-bind:class="{current: activeTitle == 'Gold Chains On Velvet'}">
-            <figure style="background-image:url(patterns/ellen-schofield/GoldChainsOnVelvet.gif)">
-              <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Gold Chains On Velvet&quot;,&quot;file&quot;:&quot;GoldChainsOnVelvet.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;description&quot;:&quot;The key is to drink coconut, fresh coconut, trust me. The weather is amazing, walk with me through the pathway of more success. Take this journey with me, Lion!&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;gold&quot;,&quot;chain&quot;,&quot;blue&quot;,&quot;velvet&quot;]})">
-                <h2 class="name">Gold Chains On Velvet</h2>
-              </div>
-            </figure>
-          </article>
-          <article class="pattern" v-bind:class="{current: activeTitle == 'Vaporwave Terrazzo'}">
-            <figure style="background-image:url(patterns/ellen-schofield/VaporwaveTerrazzo.gif)">
-              <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Vaporwave Terrazzo&quot;,&quot;file&quot;:&quot;VaporwaveTerrazzo.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;description&quot;:&quot;&lt;p&gt;Every day, I get up and pray to John. And he increases the number of clocks by exactly one. Everybody's coming home for lunch these days. Last night there were skinheads on my lawn.&lt;/p&gt;**Take the skinheads bowling, take them bowling.**&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;blue&quot;,&quot;white&quot;,&quot;animated&quot;,&quot;bowling&quot;]})">
-                <h2 class="name">Vaporwave Terrazzo</h2>
-              </div>
-            </figure>
-          </article>
+          <div class="inner-stripe">
+            <article class="pattern" v-bind:class="{current: activeTitle == 'Astroturf Argyle'}">
+              <figure style="background-image:url(patterns/ellen-schofield/AstroturfArgyle.gif)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Astroturf Argyle&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;AstroturfArgyle.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;grass&quot;,&quot;diamond&quot;,&quot;repeating&quot;]})">
+                  <h2 class="name">Astroturf Argyle</h2>
+                </div>
+              </figure>
+            </article>
+            <article class="pattern" v-bind:class="{current: activeTitle == '90s Kitchen Plaid'}">
+              <figure style="background-image:url(patterns/ellen-schofield/90sKitchenPlaid.gif)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;90s Kitchen Plaid&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;90sKitchenPlaid.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-05&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;plaid&quot;,&quot;ivy&quot;,&quot;kitchen&quot;,&quot;wallpaper&quot;]})">
+                  <h2 class="name">90s Kitchen Plaid</h2>
+                </div>
+              </figure>
+            </article>
+            <article class="pattern" v-bind:class="{current: activeTitle == 'Gold Chains On Velvet'}">
+              <figure style="background-image:url(patterns/ellen-schofield/GoldChainsOnVelvet.gif)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Gold Chains On Velvet&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;GoldChainsOnVelvet.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;gold&quot;,&quot;chain&quot;,&quot;blue&quot;,&quot;velvet&quot;]})">
+                  <h2 class="name">Gold Chains On Velvet</h2>
+                </div>
+              </figure>
+            </article>
+            <article class="pattern" v-bind:class="{current: activeTitle == 'Vaporwave Terrazzo'}">
+              <figure style="background-image:url(patterns/ellen-schofield/VaporwaveTerrazzo.gif)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Vaporwave Terrazzo&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;VaporwaveTerrazzo.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;blue&quot;,&quot;white&quot;,&quot;animated&quot;,&quot;bowling&quot;]})">
+                  <h2 class="name">Vaporwave Terrazzo</h2>
+                </div>
+              </figure>
+            </article>
+            <article class="pattern" v-bind:class="{current: activeTitle == 'Crowskull'}">
+              <figure style="background-image:url(patterns/random/hween.png)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Crowskull&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;hween.png&quot;,&quot;date&quot;:&quot;2019-07-26&quot;,&quot;description&quot;:&quot;&lt;p&gt;GHOST!&lt;/p&gt;&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;goth&quot;,&quot;spooky&quot;,&quot;purple&quot;,&quot;skulls&quot;]})">
+                  <h2 class="name">Crowskull</h2>
+                </div>
+              </figure>
+            </article>
+            <article class="pattern" v-bind:class="{current: activeTitle == 'Bat Forever'}">
+              <figure style="background-image:url(patterns/random/batforever.jpg)">
+                <div class="name-holder" v-on:click="setPattern({&quot;title&quot;:&quot;Bat Forever&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;batforever.jpg&quot;,&quot;date&quot;:&quot;2019-07-26&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;goth&quot;,&quot;wallpaper&quot;,&quot;bats&quot;,&quot;grey&quot;]})">
+                  <h2 class="name">Bat Forever</h2>
+                </div>
+              </figure>
+            </article>
+          </div>
         </section>
       </main>
       <div class="current-pattern" v-if="currentPattern &amp;&amp; currentPattern != {}">

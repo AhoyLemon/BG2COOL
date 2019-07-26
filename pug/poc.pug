@@ -18,32 +18,15 @@ html(lang="en")
     
   body
     #app
-      main(v-bind:style="{'background-image': 'url(patterns/ellen-schofield/'+bgPattern+')'}")
+      main(v-bind:style="{'background-image': 'url('+bgPattern+')'}")
         section.patterns
-          each pattern,index in allPatterns
-            article.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}")
-              
-              figure(style="background-image:url(patterns/ellen-schofield/"+pattern.file+")")
-                .name-holder(v-on:click="setPattern("+JSON.stringify(pattern)+")")
-                  h2.name= pattern.title
-                //-.button-holder(v-on:click="setPattern("+JSON.stringify(pattern)+")")
-                  button(v-on:click="setPattern("+JSON.stringify(pattern)+")") TRY IT
-              //-figcaption
-                .everything-but-tags
-                  //-h2.name= pattern.title
-
-                  .added
-                    | Added on
-                    +formatDate(pattern.date)
-
-                  cite
-                    | by 
-                    a(href=pattern.author.url)= pattern.author.name
-                  //-.description !{pattern.description}
-                  
-                .tags
-                  each tag,i in pattern.tags
-                    a(href="#")= tag
+          .inner-stripe
+            each pattern,index in allPatterns
+              article.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}")
+                
+                figure(style="background-image:url(patterns/"+pattern.folder+"/"+pattern.file+")")
+                  .name-holder(v-on:click="setPattern("+JSON.stringify(pattern)+")")
+                    h2.name= pattern.title
 
       .current-pattern(v-if="currentPattern && currentPattern != {}")
         .inner
