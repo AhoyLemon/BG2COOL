@@ -1,0 +1,17 @@
+body { padding:0; }
+main { @include position(fixed,0,($boxSize * 2), 0, 0); @include flex-center(); font-family: 'grobold'; font-size:16px; background-position: center;
+  article { background:white; margin:3em auto; width:100%; max-width: 666px; padding:2em;  }
+
+
+  .button { display: inline-block; padding:0.5em 1em; border:1px solid; text-decoration: none;
+    
+  }
+
+
+  #PositionHorizontalInput { @include position(absolute,0,0,null,0);
+    input { width: 100%; display: block; }
+  }
+  #PositionVerticalInput { @include position(absolute,0,0,0,null); transform: rotate(-90deg);
+  
+  }
+}
