@@ -16,7 +16,7 @@ var app = new Vue({
       positionVertical: 50,
       cover:false,
       borders: {
-        width: 5,
+        width: 20,
         slice: 10
       },
       show: {
@@ -41,7 +41,13 @@ var app = new Vue({
 
       self.bg.title = pattern.title;
       self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
+    },
 
+    formatDate(d) {
+      const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+      const MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+      let e = d.split("-");
+      return MonthAbbr[parseInt(e[1] - 1)] + ' ' + e[2] + ', ' + e[0];
     }
 
   },

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>BG2 😎 COOL</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Nunito|Oswald:700|Vollkorn&amp;display=swap" rel="stylesheet">
     <link href="css/bg2cool.css" rel="stylesheet">
   </head>
   <body>
@@ -14,6 +14,9 @@
           </div>
           <div class="description">
             <div class="author-holder" v-if="currentPattern.author"><span>by </span><a :href="currentPattern.author.url" target="_blank"><span class="author" v-text="currentPattern.author.name"></span></a></div>
+            <div class="date-holder"><span>added </span>
+              <time>{{formatDate(currentPattern.date)}}</time>
+            </div>
           </div>
           <div class="ranges">
             <label v-if="!bg.cover"><span class="prop">Size</span>
@@ -141,12 +144,6 @@
           <figure class="pattern" v-bind:class="{current: activeTitle == 'Gramma’s Shower Curtain'}" style="background-image:url(patterns/random/gramma-shower-curtain.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Gramma’s Shower Curtain&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;gramma-shower-curtain.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;flowers&quot;]})">
             <div class="name-holder">
               <h2 class="name">Gramma’s Shower Curtain</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'WHALES$$'}" style="background-image:url(patterns/random/whales.png)" v-on:click="setPattern({&quot;title&quot;:&quot;WHALES$$&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;whales.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;flowers&quot;]})">
-            <div class="name-holder">
-              <h2 class="name">WHALES$$</h2>
             </div>
           </figure>
         </div>

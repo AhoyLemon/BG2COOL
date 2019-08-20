@@ -1,11 +1,13 @@
 body { padding:0; }
-main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: "Oswald", 'Times New Roman', Times, serif; font-size:16px; background-position: center; box-shadow: inset -0.5em 0 0.5em rgba(0,0,0,.7);
+main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', sans-serif; font-size:18px; background-position: center; box-shadow: inset -0.5em 0 0.5em rgba(0,0,0,.7);
 
   overflow-y: auto;
 
-  article { background:white; margin:3em auto; width:100%; max-width: 666px; padding:2em; border:2px solid rgba(0,0,0,0.15); box-shadow: 1em 1em 1em rgba(0,0,0,.5);  font-weight: 200; }
+  article { background:white; margin:3em auto; width:100%; max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.15); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
+    box-sizing: content-box; max-width: 580px; padding:2em;
+  }
 
-
+  
   /*
   label { display: block;
     > span { display: block; }
@@ -41,7 +43,7 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: "Oswald", '
 
   .ranges { display: grid; grid-template-columns: repeat(3,1fr); grid-gap: 20px;
     label {
-      .prop { text-transform: uppercase; }
+      .prop { text-transform: lowercase; }
       input { width:100%; }
     }
   }
@@ -67,7 +69,8 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: "Oswald", '
       display:inline-block;
       padding:1em 2em 1em 1em;
 			position: relative;
-      border-radius: 2px;
+      //border-radius: 2px;
+      margin-right: -4px;
       input[type="checkbox"] { position: absolute; opacity: 0; }
       .check { position: absolute; top:4px; right: 6px;transition:all 0.3s ease; text-shadow: none; font-size:180%; color:#e9e6e4;
         //filter: drop-shadow(1px 1px 0 crimson);
@@ -91,15 +94,17 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: "Oswald", '
   //.name {  }
 
   // COOL STYLES
-  article.cool { color:white; text-shadow: -0.1em -0.1em 0.2em black, 0.1em 0.1em 0.2em black;
+  article.cool { color:white; text-shadow: -0.05em -0.05em 0.1em black, 0.05em 0.05em 0.1em black;
     .name.uncool { color: white !important; }
     a{ color: yellow; }
     label.uncool { color:black; text-shadow: none; }
   }
 
-  article.cool-borders { border-width: 20px; border-image-slice: 10%; border-image-repeat: round; box-sizing: content-box; }
+  article.cool-borders { border-width: 20px; border-image-slice: 10%; border-image-repeat: round; box-sizing: content-box;
+    box-shadow: inset 0 0 0.5em rgba(0,0,0,0.65), 1em 1em 1em rgba(0,0,0,0.5); 
+  }
 
-  .name.cool { color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family:Oswald; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
+  .name.cool { color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
   label.cool { transition:background-size 0.5s ease; color:white !important; text-shadow: -0.1em -0.1em 0.1em black, 0.1em 0.1em 0.1em black;
     &:hover, &:focus { background-size:120% !important; }
     .check { opacity:0.25; }

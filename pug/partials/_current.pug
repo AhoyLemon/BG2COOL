@@ -10,6 +10,9 @@ main(v-if="currentPattern" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.b
         span by 
         a(:href="currentPattern.author.url" target="_blank")
           span.author(v-text="currentPattern.author.name")
+      .date-holder
+        span added 
+        time {{formatDate(currentPattern.date)}}
       //-.tags(v-if="currentPattern.tags")
         label Tags:
         span.tag(v-for="tag in currentPattern.tags")

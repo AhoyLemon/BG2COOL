@@ -63,6 +63,17 @@ function findInArray(array,key,value) {
   }
 }
 
+
+/*
+function formatDate(d) {
+  const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+  const MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+  let e = d.split("-");
+  return MonthAbbr[parseInt(e[1] - 1)] + ' ' + e[2] + ', ' + e[0];
+}
+*/
+
+
 function shuffle(o){
   for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
   return o;
