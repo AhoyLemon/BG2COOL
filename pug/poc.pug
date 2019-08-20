@@ -13,45 +13,18 @@ doctype html
 html(lang="en")
   head
     title BG2 😎 COOL
-    link(href="https://fonts.googleapis.com/css?family=Barriecito|Flamenco|Gaegu|Permanent+Marker|Righteous&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Oswald:300,700&display=swap" rel="stylesheet")
     link(href="css/bg2cool.css" rel="stylesheet")
     
   body
     #app
-      main(v-if="currentPattern" v-bind:style="styleObject")
-        article
-          .inner
-            span.label Current Pattern
-            .name(v-text="currentPattern.title")
-            span.author-holder(v-if="currentPattern.author")
-              span by 
-              a(:href="currentPattern.author.url")
-                span.author(v-text="currentPattern.author.name")
-            .tags(v-if="currentPattern.tags")
-              label Tags:
-              span.tag(v-for="tag in currentPattern.tags")
-                a(href="#" v-text="tag")
-            
-            //-.download-holder
-              a.button.download(href="#") Download This
 
-          .range-holder
-            input(type="range" min="10" max="200" v-model="bg.size")
-          #PositionHorizontalInput
-            input(type="range" min="0" max="100" v-model="bg.positionHorizontal")
-          #PositionVerticalInput
-            input(type="range" min="0" max="100" v-model="bg.positionVertical")
-          pre
-            code(v-html="coolCSS")
-
-
-
+      include partials/_current.pug
 
       section.patterns
         .pattern-holder
           each pattern,index in allPatterns
             //article.pattern()
-              
             figure.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}" style="background-image:url(patterns/"+pattern.folder+"/"+pattern.file+")" v-on:click="setPattern("+JSON.stringify(pattern)+")")
               .name-holder
                 h2.name= pattern.title

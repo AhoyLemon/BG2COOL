@@ -4,7 +4,6 @@ $gapSize: 0;
 section.patterns { @include position(fixed,0,0,0); width:($boxSize * 2); overflow-y: auto;
   .pattern-holder { display:grid; grid-template-columns: repeat(2,1fr);  }
   .pattern { position: relative; height:100%; min-height: $boxSize; @include flex-center(); cursor: pointer; background-size: 50%;
-    //.name-holder { @include position(absolute,0,0,0,0); @include flex-center(); pointer-events: none; }
     .name { text-align: center; color:white; font-family: 'ShePersisted'; text-shadow: 3px 3px 2px #111, -1px -1px 0 #111;  font-size:24px;
       transform:scale(0.2); opacity:0; transition: opacity 0.05s linear, transform 0.3s ease;
     }

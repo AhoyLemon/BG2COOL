@@ -1,0 +1,50 @@
+main(v-if="currentPattern" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject")
+
+  article(v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner }" v-bind:style="styleObject")
+    .name-holder
+      span.label Current Pattern
+      .name(v-bind:class="{ cool: bg.show.headline, uncool:!bg.show.headline }" v-text="currentPattern.title" v-bind:style="styleObject")
+    .inner
+      span.author-holder(v-if="currentPattern.author")
+        span by 
+        a(:href="currentPattern.author.url")
+          span.author(v-text="currentPattern.author.name")
+      .tags(v-if="currentPattern.tags")
+        label Tags:
+        span.tag(v-for="tag in currentPattern.tags")
+          a(href="#" v-text="tag")
+      
+      pre
+        code(v-html="coolCSS")
+    .options
+      //-label.toggle
+        span Cover
+        input(type="checkbox" v-model="bg.cover")
+      label(v-if="!bg.cover")
+        span Size
+        input(type="range" min="5" :max="settings.maxSize" v-model="bg.size")
+      label
+        label Horizontal
+        input(type="range" min="0" max="100" v-model="bg.positionHorizontal")
+      label
+        label Vertical
+        input(type="range" min="0" max="100" v-model="bg.positionVertical")
+    .show-options
+      .option-desc Show pattern in...
+      .labels
+        label(v-bind:class="{active: bg.show.body, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject")
+          span.option-name background
+          input(type="checkbox" v-model="bg.show.body" ) 
+          span.check ✔️
+        label(v-bind:class="{active: bg.show.inner, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject")
+          span.option-name foreground
+          input(type="checkbox" v-model="bg.show.inner") 
+          span.check ✔️
+        label(v-bind:class="{active: bg.show.headline, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject")
+          span.option-name headline
+          input(type="checkbox" v-model="bg.show.headline") 
+          span.check ✔️
+        label(v-bind:class="{active: bg.show.button, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject")
+          span.option-name buttons
+          input(type="checkbox" v-model="bg.show.button") 
+          span.check ✔️

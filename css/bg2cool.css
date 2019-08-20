@@ -1,73 +1,411 @@
-* { -webkit-box-sizing: border-box; box-sizing: border-box; }
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, dialog, div, dl, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, meter, nav, object, ol, output, p, pre, progress, q, rp, rt, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video, xmp { border: 0; margin: 0; padding: 0; font-size: 100%; }
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%; }
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section { display: block; }
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block; }
 
-b, strong { font-weight: bold; }
+b,
+strong {
+  font-weight: bold; }
 
-img { color: transparent; font-size: 0; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic; }
 
-ul, ol { list-style: none; }
+ul,
+ol {
+  list-style: none; }
 
-li { display: list-item; }
+li {
+  display: list-item; }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-th, td, caption { font-weight: normal; vertical-align: top; text-align: left; }
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left; }
 
-q { quotes: none; }
+q {
+  quotes: none; }
 
-q:before, q:after { content: ""; content: none; }
+q:before,
+q:after {
+  content: "";
+  content: none; }
 
-sub, sup, small { font-size: 75%; }
+sub,
+sup,
+small {
+  font-size: 75%; }
 
-sub, sup { line-height: 0; position: relative; vertical-align: baseline; }
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
 
-sub { bottom: -0.25em; }
+sub {
+  bottom: -0.25em; }
 
-sup { top: -0.5em; }
+sup {
+  top: -0.5em; }
 
-svg { overflow: hidden; }
+svg {
+  overflow: hidden; }
 
-@font-face { font-family: 'grobold'; src: url("../fonts/grobold/grobold.ttf"); }
+@font-face {
+  font-family: 'grobold';
+  src: url("../fonts/grobold/grobold.ttf"); }
 
-@font-face { font-family: 'fluo'; src: url("../fonts/fluo_gums/fluo.ttf"); }
+@font-face {
+  font-family: 'fluo';
+  src: url("../fonts/fluo_gums/fluo.ttf"); }
 
-@font-face { font-family: 'jakarta'; src: url("../fonts/jakarta_legal_aid_institute/jakarta.otf"); }
+@font-face {
+  font-family: 'jakarta';
+  src: url("../fonts/jakarta_legal_aid_institute/jakarta.otf"); }
 
-@font-face { font-family: 'ShePersisted'; src: url("../fonts/kg_she_persisted/KGShePersisted.ttf"); }
+@font-face {
+  font-family: 'ShePersisted';
+  src: url("../fonts/kg_she_persisted/KGShePersisted.ttf"); }
 
-@font-face { font-family: 'kraash'; src: url("../fonts/kraash/KraashBlack.ttf"); }
+@font-face {
+  font-family: 'kraash';
+  src: url("../fonts/kraash/KraashBlack.ttf"); }
 
-[v-cloak] { display: none !important; }
+[v-cloak] {
+  display: none !important; }
 
-body { font-size: 14px; height: initial; }
+body {
+  font-size: 14px;
+  height: initial; }
 
-section.patterns { position: fixed; top: 0; right: 0; bottom: 0; width: 440px; overflow-y: auto; }
+section.patterns {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 440px;
+  overflow-y: auto; }
+  section.patterns .pattern-holder {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr); }
+  section.patterns .pattern {
+    position: relative;
+    height: 100%;
+    min-height: 220px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    background-size: 50%; }
+    section.patterns .pattern .name {
+      text-align: center;
+      color: white;
+      font-family: 'ShePersisted';
+      text-shadow: 3px 3px 2px #111, -1px -1px 0 #111;
+      font-size: 24px;
+      -webkit-transform: scale(0.2);
+      -ms-transform: scale(0.2);
+      transform: scale(0.2);
+      opacity: 0;
+      -webkit-transition: opacity 0.05s linear, -webkit-transform 0.3s ease;
+      transition: opacity 0.05s linear, -webkit-transform 0.3s ease;
+      -o-transition: opacity 0.05s linear, transform 0.3s ease;
+      transition: opacity 0.05s linear, transform 0.3s ease;
+      transition: opacity 0.05s linear, transform 0.3s ease, -webkit-transform 0.3s ease; }
+    section.patterns .pattern:hover .name, section.patterns .pattern.current .name {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      opacity: 1; }
 
-section.patterns .pattern-holder { display: -ms-grid; display: grid; -ms-grid-columns: (1fr)[2]; grid-template-columns: repeat(2, 1fr); }
+body {
+  padding: 0; }
 
-section.patterns .pattern { position: relative; height: 100%; min-height: 220px; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; cursor: pointer; background-size: 50%; }
-
-section.patterns .pattern .name { text-align: center; color: white; font-family: 'ShePersisted'; text-shadow: 3px 3px 2px #111, -1px -1px 0 #111; font-size: 24px; -webkit-transform: scale(0.2); -ms-transform: scale(0.2); transform: scale(0.2); opacity: 0; -webkit-transition: opacity 0.05s linear, -webkit-transform 0.3s ease; transition: opacity 0.05s linear, -webkit-transform 0.3s ease; -o-transition: opacity 0.05s linear, transform 0.3s ease; transition: opacity 0.05s linear, transform 0.3s ease; transition: opacity 0.05s linear, transform 0.3s ease, -webkit-transform 0.3s ease; }
-
-section.patterns .pattern:hover .name, section.patterns .pattern.current .name { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); opacity: 1; }
-
-body { padding: 0; }
-
-main { position: fixed; top: 0; right: 440px; bottom: 0; left: 0; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; font-family: 'grobold'; font-size: 16px; background-position: center; }
-
-main article { background: white; margin: 3em auto; width: 100%; max-width: 666px; padding: 2em; }
-
-main .button { display: inline-block; padding: 0.5em 1em; border: 1px solid; text-decoration: none; }
-
-main #PositionHorizontalInput { position: absolute; top: 0; right: 0; left: 0; }
-
-main #PositionHorizontalInput input { width: 100%; display: block; }
-
-main #PositionVerticalInput { position: absolute; top: 0; right: 0; bottom: 0; -webkit-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); }
+main {
+  position: fixed;
+  top: 0;
+  right: 440px;
+  bottom: 0;
+  left: 0;
+  font-family: "Oswald", 'Times New Roman', Times, serif;
+  font-size: 16px;
+  background-position: center;
+  -webkit-box-shadow: inset -0.5em 0 0.5em rgba(0, 0, 0, 0.7);
+  box-shadow: inset -0.5em 0 0.5em rgba(0, 0, 0, 0.7);
+  -webkit-transition: background-image 1s ease;
+  -o-transition: background-image 1s ease;
+  transition: background-image 1s ease; }
+  main article {
+    background: white;
+    margin: 3em auto;
+    width: 100%;
+    max-width: 666px;
+    padding: 2em;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5);
+    font-weight: 200; }
+  main .button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 1px solid;
+    text-decoration: none; }
+  main pre {
+    background: #111;
+    color: #eee;
+    padding: 1em;
+    overflow-x: auto;
+    max-width: 420px; }
+  main label {
+    display: block; }
+    main label > span {
+      display: block; }
+  main article {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 160px;
+    grid-template-columns: 1fr 160px; }
+    main article .name-holder {
+      -ms-grid-column-span: 2;
+      grid-column: span 2; }
+  main .author-holder {
+    display: block;
+    margin-top: 20px; }
+    main .author-holder .author {
+      font-weight: bold; }
+  main .tags {
+    margin-top: 1em;
+    margin-bottom: 0.5em; }
+    main .tags label {
+      font-weight: bold;
+      display: block; }
+    main .tags .tag {
+      display: inline;
+      margin-bottom: 5px; }
+      main .tags .tag:after {
+        content: ', '; }
+      main .tags .tag:last-child:after {
+        content: ''; }
+  main .download-holder {
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: 80px; }
+  main .show-options {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+    padding-top: 1em; }
+    main .show-options label {
+      background: #313131;
+      color: white;
+      padding: 1em 2em;
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      margin-right: 0.5em; }
+      main .show-options label input[type="checkbox"] {
+        position: absolute;
+        opacity: 0; }
+      main .show-options label .check {
+        position: absolute;
+        top: 20%;
+        right: 0px;
+        -webkit-transform: scale(0.2);
+        -ms-transform: scale(0.2);
+        transform: scale(0.2);
+        opacity: 0;
+        -webkit-transition: -webkit-transform 1s ease;
+        transition: -webkit-transform 1s ease;
+        -o-transition: transform 1s ease;
+        transition: transform 1s ease;
+        transition: transform 1s ease, -webkit-transform 1s ease;
+        text-shadow: none;
+        font-size: 140%; }
+      main .show-options label.active .check {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1; }
+      main .show-options label:hover {
+        background: #28285a; }
+  main article {
+    -webkit-transition: background-image 1s ease;
+    -o-transition: background-image 1s ease;
+    transition: background-image 1s ease; }
+  main article.cool {
+    color: white;
+    text-shadow: -0.1em -0.1em 0.2em black, 0.1em 0.1em 0.2em black; }
+    main article.cool .name.uncool {
+      color: white !important; }
+    main article.cool a {
+      color: yellow; }
+  main .name.cool {
+    color: white;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Oswald;
+    font-weight: 900;
+    font-size: 72px;
+    line-height: 100%;
+    text-transform: uppercase;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: none !important; }
+  main label.cool {
+    -webkit-transition: background-size 0.5s ease;
+    -o-transition: background-size 0.5s ease;
+    transition: background-size 0.5s ease;
+    text-shadow: -0.1em -0.1em 0.2em black, 0.1em 0.1em 0.2em black; }
+    main label.cool:hover, main label.cool:focus {
+      background-size: 120% !important; }
+  main.uncool {
+    background: #333 !important; }
+  main article.uncool {
+    background: white !important; }
+  main .name.uncool {
+    font-size: 32px;
+    color: black;
+    text-transform: none;
+    background: transparent !important; }
+  main label.uncool {
+    background-image: none !important; }
 
 /*# sourceMappingURL=bg2cool.css.map */
