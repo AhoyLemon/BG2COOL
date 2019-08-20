@@ -7,6 +7,7 @@ var app = new Vue({
     settings: {
       maxSize: 120
     },
+    cssCopied: false,
     bg: {
       pattern: null,
       title: null,
@@ -41,6 +42,21 @@ var app = new Vue({
 
       self.bg.title = pattern.title;
       self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
+    },
+
+    copyCSS() {
+      var CodeBlock = document.querySelector('#CopyCode');  
+      var range = document.createRange();  
+      range.selectNode(CodeBlock);  
+      window.getSelection().addRange(range);  
+      try {  
+        // Now that we've selected the anchor text, execute the copy command  
+        var successful = document.execCommand('copy');  
+        var msg = successful ? 'successful' : 'unsuccessful';  
+        console.log('Copy email command was ' + msg);  
+      } catch(err) {  
+        alert('Oops, unable to copy');  
+      }  
     },
 
     formatDate(d) {

@@ -18,23 +18,6 @@
               <time>{{formatDate(currentPattern.date)}}</time>
             </div>
           </div>
-          <div class="ranges">
-            <label v-if="!bg.cover"><span class="prop">Size</span>
-              <input type="range" min="5" :max="settings.maxSize" v-model="bg.size">
-            </label>
-            <label><span class="prop">Horizontal</span>
-              <input type="range" min="0" max="100" v-model="bg.positionHorizontal">
-            </label>
-            <label><span class="prop">Vertical</span>
-              <input type="range" min="0" max="100" v-model="bg.positionVertical">
-            </label>
-            <label v-if="bg.show.borders"><span class="prop">Border Size</span>
-              <input type="range" min="2" max="100" v-model="bg.borders.width">
-            </label>
-            <label v-if="bg.show.borders"><span class="prop">Border Slice</span>
-              <input type="range" min="1" max="40" v-model="bg.borders.slice">
-            </label>
-          </div>
           <div class="toggles">
             <div class="option-desc">Put that pattern in the...</div>
             <div class="labels">
@@ -55,8 +38,26 @@
               </label>
             </div>
           </div>
+          <div class="ranges">
+            <label v-if="!bg.cover"><span class="prop">Size</span>
+              <input type="range" min="5" :max="settings.maxSize" v-model="bg.size">
+            </label>
+            <label><span class="prop">Horizontal</span>
+              <input type="range" min="0" max="100" v-model="bg.positionHorizontal">
+            </label>
+            <label><span class="prop">Vertical</span>
+              <input type="range" min="0" max="100" v-model="bg.positionVertical">
+            </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Size</span>
+              <input type="range" min="2" max="100" v-model="bg.borders.width">
+            </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Slice</span>
+              <input type="range" min="1" max="40" v-model="bg.borders.slice">
+            </label>
+          </div>
           <div class="code-holder">
-            <pre><code v-html="coolCSS"></code></pre>
+            <pre v-if="coolCSS"><code id="CopyCode" v-html="coolCSS"></code></pre>
+            <button @click="copyCSS()">Copy CSS</button>
           </div>
         </article>
       </main>

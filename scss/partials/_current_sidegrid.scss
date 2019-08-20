@@ -26,7 +26,7 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
 
   // Pattern Text Description
   .description {
-    .author-holder { display: block; margin-top:20px;
+    .author-holder { display: block;
       .author { font-weight: bold; }
     }
 
@@ -76,15 +76,20 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
         //filter: drop-shadow(1px 1px 0 crimson);
         text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white
       }
-
       &.active { 
         .check { color:#83d244; }
       }
     }
   }
 
-  .code-holder { overflow: hidden;
+  .code-holder { overflow: hidden; position: relative;
     pre { background:#111; color:#eee; padding:1em; overflow-x: auto; max-width: 100%; }
+
+    button { @include position(absolute,6px,6px); cursor: pointer;
+      background-image: linear-gradient(top, #f4f1ee, #fff); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+      &:hover, &:focus { background-image: linear-gradient(top, #74dccf, #c2f3ed); }
+      &:active { box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); }
+    }
   }
 
 

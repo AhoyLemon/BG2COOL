@@ -18,23 +18,6 @@ main(v-if="currentPattern" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.b
         span.tag(v-for="tag in currentPattern.tags")
           a(href="#" v-text="tag")
 
-    .ranges
-      label(v-if="!bg.cover")
-        span.prop Size
-        input(type="range" min="5" :max="settings.maxSize" v-model="bg.size")
-      label
-        span.prop Horizontal
-        input(type="range" min="0" max="100" v-model="bg.positionHorizontal")
-      label
-        span.prop Vertical
-        input(type="range" min="0" max="100" v-model="bg.positionVertical")
-      label(v-if="bg.show.borders")
-        span.prop Border Size
-        input(type="range" min="2" max="100" v-model="bg.borders.width")
-      label(v-if="bg.show.borders")
-        span.prop Border Slice
-        input(type="range" min="1" max="40" v-model="bg.borders.slice")
-
     .toggles
       .option-desc Put that pattern in the...
       .labels
@@ -59,6 +42,24 @@ main(v-if="currentPattern" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.b
           input(type="checkbox" v-model="bg.show.inner") 
           span.check ✔
 
+    .ranges
+      label(v-if="!bg.cover")
+        span.prop Size
+        input(type="range" min="5" :max="settings.maxSize" v-model="bg.size")
+      label
+        span.prop Horizontal
+        input(type="range" min="0" max="100" v-model="bg.positionHorizontal")
+      label
+        span.prop Vertical
+        input(type="range" min="0" max="100" v-model="bg.positionVertical")
+      label(v-if="bg.show.borders")
+        span.prop Border Size
+        input(type="range" min="2" max="100" v-model="bg.borders.width")
+      label(v-if="bg.show.borders")
+        span.prop Border Slice
+        input(type="range" min="1" max="40" v-model="bg.borders.slice")
+
     .code-holder
-      pre
-        code(v-html="coolCSS")
+      pre(v-if="coolCSS")
+        code#CopyCode(v-html="coolCSS")
+      button(@click="copyCSS()") Copy CSS

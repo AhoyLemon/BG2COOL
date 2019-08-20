@@ -84,7 +84,7 @@ main article { display: -ms-grid; display: grid; grid-gap: 20px; }
 
 main .name-holder .label { text-transform: uppercase; letter-spacing: 0.1em; }
 
-main .description .author-holder { display: block; margin-top: 20px; }
+main .description .author-holder { display: block; }
 
 main .description .author-holder .author { font-weight: bold; }
 
@@ -114,9 +114,15 @@ main .toggles label .check { position: absolute; top: 4px; right: 6px; -webkit-t
 
 main .toggles label.active .check { color: #83d244; }
 
-main .code-holder { overflow: hidden; }
+main .code-holder { overflow: hidden; position: relative; }
 
 main .code-holder pre { background: #111; color: #eee; padding: 1em; overflow-x: auto; max-width: 100%; }
+
+main .code-holder button { position: absolute; top: 6px; right: 6px; cursor: pointer; background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f1ee), to(#fff)); background-image: -webkit-linear-gradient(top, #f4f1ee, #fff); background-image: -o-linear-gradient(top, #f4f1ee, #fff); background-image: linear-gradient(top, #f4f1ee, #fff); -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
+
+main .code-holder button:hover, main .code-holder button:focus { background-image: -webkit-gradient(linear, left top, left bottom, from(#74dccf), to(#c2f3ed)); background-image: -webkit-linear-gradient(top, #74dccf, #c2f3ed); background-image: -o-linear-gradient(top, #74dccf, #c2f3ed); background-image: linear-gradient(top, #74dccf, #c2f3ed); }
+
+main .code-holder button:active { -webkit-box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
 
 main article { -webkit-transition: background-image 1s ease; -o-transition: background-image 1s ease; transition: background-image 1s ease; }
 
