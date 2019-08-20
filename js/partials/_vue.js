@@ -8,16 +8,23 @@ var app = new Vue({
       maxSize: 120
     },
     bg: {
+      pattern: null,
+      title: null,
       size: 50,
       fixed: true,
       positionHorizontal: 50,
       positionVertical: 50,
       cover:false,
+      borders: {
+        width: 5,
+        slice: 10
+      },
       show: {
         body: true,
         inner: false,
-        headline: false,
-        button: false
+        headline: true,
+        button: false,
+        borders: false
       }
     },
     currentPattern: null
@@ -28,8 +35,13 @@ var app = new Vue({
       let self = this;
       self.currentPattern = pattern;
       self.activeTitle = pattern.title;
+      
       self.bgPattern = "patterns/"+pattern.folder+"/"+pattern.file;
       console.log(pattern.title);
+
+      self.bg.title = pattern.title;
+      self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
+
     }
 
   },
@@ -56,30 +68,43 @@ var app = new Vue({
         s.backgroundPosition = self.bg.positionHorizontal+'% '+ self.bg.positionVertical+'%';
         console.log(s);
       }
+
+      if (self.bg.show.borders) {
+        s.borderImageSource = 'url('+self.bgPattern+')';
+        s.borderWidth = self.bg.borders.width + 'px';
+        s.borderImageSlice = self.bg.borders.slice + '%';
+      }
+
       return s;
     },
 
     coolCSS() {
       let self = this;
-      let pre = '.cool {\n';
-      if (self.bgPattern) {
-        pre += '  background-image:url('+self.bgPattern+');\n';
-      }
+      let pre = "";
 
-      if (self.bg.size == self.settings.maxSize) {
-        pre += '  background-size: cover;\n';
-      } else if (self.bg.size) {
-        pre += '  background-size: '+self.bg.size+'%;\n';
-      }
+      // GENERIC COOL BG STYLE
+      if (self.bg.show.body || self.bg.show.inner || self.bg.show.button) {
 
-      if (self.bg.positionHorizontal == 50 && self.bg.positionVertical == 50) {
-        pre += '  background-position: center\n';
-      }
-      else {
-        pre += '  background-position: '+self.bg.positionHorizontal+'% '+self.bg.positionVertical+'%\n';
-      }
+        pre += '.cool {\n';
+        if (self.bgPattern) {
+          pre += '  background-image:url('+self.bgPattern+');\n';
+        }
 
-      pre += '}';
+        if (self.bg.size == self.settings.maxSize) {
+          pre += '  background-size: cover;\n';
+        } else if (self.bg.size) {
+          pre += '  background-size: '+self.bg.size+'%;\n';
+        }
+
+        if (self.bg.positionHorizontal == 50 && self.bg.positionVertical == 50) {
+          pre += '  background-position: center\n';
+        }
+        else {
+          pre += '  background-position: '+self.bg.positionHorizontal+'% '+self.bg.positionVertical+'%\n';
+        }
+
+        pre += '}';
+      }
       
       // HEADLINE SPECIFIC STYLES
       if (self.bg.show.headline) {
@@ -89,6 +114,7 @@ var app = new Vue({
         pre += '}';
         
       }
+
       // BUTTON SPECIFIC STYLES
       if (self.bg.show.button) {
         pre += '\n\nbutton.cool {\n';
@@ -99,16 +125,28 @@ var app = new Vue({
         pre += '}';
       }
 
+
+      // BORDER STYLES
+      if (self.bg.show.borders) {
+        pre += '\n\n.cool-borders {\n';
+        pre += '  border-image-source: url('+self.bgPattern+');\n';
+        pre += '  border-width: '+self.bg.borders.width+'px;\n';
+        pre += '  border-image-slice: '+self.bg.borders.slice+'%;\n';
+        pre += '  border-image-repeat: round;\n';
+        pre += '}';
+      }
+
+
       return pre;
     },
 
-    
-
-    /*
-    rockLeft() {
-      return 'calc('+this.s.width+'% + '+this.r.left+'%)';
+    titleFontSize() {
+      let self = this;
+      //return (100 / self.bg.title.length) + 'px';
+      return {
+        fontSize: (1100 / self.bg.title.length) + 'px'
+      };
     },
-    */
 
   },
 

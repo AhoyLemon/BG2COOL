@@ -8,45 +8,52 @@
   <body>
     <div id="app">
       <main v-if="currentPattern" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject">
-        <article v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner }" v-bind:style="styleObject">
+        <article v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject">
           <div class="name-holder"><span class="label">Current Pattern</span>
             <div class="name" v-bind:class="{ cool: bg.show.headline, uncool:!bg.show.headline }" v-text="currentPattern.title" v-bind:style="styleObject"></div>
           </div>
-          <div class="inner"><span class="author-holder" v-if="currentPattern.author"><span>by </span><a :href="currentPattern.author.url"><span class="author" v-text="currentPattern.author.name"></span></a></span>
-            <div class="tags" v-if="currentPattern.tags">
-              <label>Tags:</label><span class="tag" v-for="tag in currentPattern.tags"><a href="#" v-text="tag"></a></span>
-            </div>
-            <pre><code v-html="coolCSS"></code></pre>
+          <div class="description">
+            <div class="author-holder" v-if="currentPattern.author"><span>by </span><a :href="currentPattern.author.url" target="_blank"><span class="author" v-text="currentPattern.author.name"></span></a></div>
           </div>
-          <div class="options">
-            <label v-if="!bg.cover"><span>Size</span>
+          <div class="ranges">
+            <label v-if="!bg.cover"><span class="prop">Size</span>
               <input type="range" min="5" :max="settings.maxSize" v-model="bg.size">
             </label>
-            <label>
-              <label>Horizontal</label>
+            <label><span class="prop">Horizontal</span>
               <input type="range" min="0" max="100" v-model="bg.positionHorizontal">
             </label>
-            <label>
-              <label>Vertical</label>
+            <label><span class="prop">Vertical</span>
               <input type="range" min="0" max="100" v-model="bg.positionVertical">
             </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Size</span>
+              <input type="range" min="2" max="100" v-model="bg.borders.width">
+            </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Slice</span>
+              <input type="range" min="1" max="40" v-model="bg.borders.slice">
+            </label>
           </div>
-          <div class="show-options">
-            <div class="option-desc">Show pattern in...</div>
+          <div class="toggles">
+            <div class="option-desc">Put that pattern in the...</div>
             <div class="labels">
-              <label v-bind:class="{active: bg.show.body, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">background</span>
-                <input type="checkbox" v-model="bg.show.body"><span class="check">✔️</span>
-              </label>
-              <label v-bind:class="{active: bg.show.inner, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">foreground</span>
-                <input type="checkbox" v-model="bg.show.inner"><span class="check">✔️</span>
+              <label v-bind:class="{active: bg.show.body, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">body</span>
+                <input type="checkbox" v-model="bg.show.body"><span class="check">✔</span>
               </label>
               <label v-bind:class="{active: bg.show.headline, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">headline</span>
-                <input type="checkbox" v-model="bg.show.headline"><span class="check">✔️</span>
+                <input type="checkbox" v-model="bg.show.headline"><span class="check">✔</span>
               </label>
               <label v-bind:class="{active: bg.show.button, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">buttons</span>
-                <input type="checkbox" v-model="bg.show.button"><span class="check">✔️</span>
+                <input type="checkbox" v-model="bg.show.button"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.borders, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">borders</span>
+                <input type="checkbox" v-model="bg.show.borders"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.inner, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">article</span>
+                <input type="checkbox" v-model="bg.show.inner"><span class="check">✔</span>
               </label>
             </div>
+          </div>
+          <div class="code-holder">
+            <pre><code v-html="coolCSS"></code></pre>
           </div>
         </article>
       </main>
@@ -59,9 +66,9 @@
             </div>
           </figure>
           <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == '90s Kitchen Plaid'}" style="background-image:url(patterns/ellen-schofield/90sKitchenPlaid.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;90s Kitchen Plaid&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;90sKitchenPlaid.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-05&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;plaid&quot;,&quot;ivy&quot;,&quot;kitchen&quot;,&quot;wallpaper&quot;]})">
+          <figure class="pattern" v-bind:class="{current: activeTitle == '90’s Kitchen Plaid'}" style="background-image:url(patterns/ellen-schofield/90sKitchenPlaid.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;90’s Kitchen Plaid&quot;,&quot;folder&quot;:&quot;ellen-schofield&quot;,&quot;file&quot;:&quot;90sKitchenPlaid.gif&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Ellen Schofield&quot;,&quot;url&quot;:&quot;https://ellen-schofield&quot;},&quot;date&quot;:&quot;2019-07-05&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;plaid&quot;,&quot;ivy&quot;,&quot;kitchen&quot;,&quot;wallpaper&quot;]})">
             <div class="name-holder">
-              <h2 class="name">90s Kitchen Plaid</h2>
+              <h2 class="name">90’s Kitchen Plaid</h2>
             </div>
           </figure>
           <!--article.pattern()-->
@@ -116,6 +123,30 @@
           <figure class="pattern" v-bind:class="{current: activeTitle == 'Saved By...'}" style="background-image:url(patterns/random/thebell.svg)" v-on:click="setPattern({&quot;title&quot;:&quot;Saved By...&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;thebell.svg&quot;,&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;90s&quot;,&quot;bowling&quot;]})">
             <div class="name-holder">
               <h2 class="name">Saved By...</h2>
+            </div>
+          </figure>
+          <!--article.pattern()-->
+          <figure class="pattern" v-bind:class="{current: activeTitle == 'Hex’d'}" style="background-image:url(patterns/random/1049.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Hex’d&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;1049.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;source&quot;:{&quot;name&quot;:&quot;Background Tiles&quot;,&quot;url&quot;:&quot;https://background-tiles.com&quot;},&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;90s&quot;,&quot;bowling&quot;]})">
+            <div class="name-holder">
+              <h2 class="name">Hex’d</h2>
+            </div>
+          </figure>
+          <!--article.pattern()-->
+          <figure class="pattern" v-bind:class="{current: activeTitle == 'Marco’s Macaroons'}" style="background-image:url(patterns/random/macaroon.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Marco’s Macaroons&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;macaroon.jpg&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;90s&quot;,&quot;bowling&quot;]})">
+            <div class="name-holder">
+              <h2 class="name">Marco’s Macaroons</h2>
+            </div>
+          </figure>
+          <!--article.pattern()-->
+          <figure class="pattern" v-bind:class="{current: activeTitle == 'Gramma’s Shower Curtain'}" style="background-image:url(patterns/random/gramma-shower-curtain.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Gramma’s Shower Curtain&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;gramma-shower-curtain.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;flowers&quot;]})">
+            <div class="name-holder">
+              <h2 class="name">Gramma’s Shower Curtain</h2>
+            </div>
+          </figure>
+          <!--article.pattern()-->
+          <figure class="pattern" v-bind:class="{current: activeTitle == 'WHALES$$'}" style="background-image:url(patterns/random/whales.png)" v-on:click="setPattern({&quot;title&quot;:&quot;WHALES$$&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;whales.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true,&quot;tags&quot;:[&quot;flowers&quot;]})">
+            <div class="name-holder">
+              <h2 class="name">WHALES$$</h2>
             </div>
           </figure>
         </div>
