@@ -109,7 +109,7 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
     box-shadow: inset 0 0 0.5em rgba(0,0,0,0.65), 1em 1em 1em rgba(0,0,0,0.5); 
   }
 
-  .name.cool { color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
+  .name.cool { background-attachment: fixed; color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
   label.cool { transition:background-size 0.5s ease; color:white !important; text-shadow: -0.1em -0.1em 0.1em black, 0.1em 0.1em 0.1em black;
     &:hover, &:focus { background-size:120% !important; }
     .check { opacity:0.25; }
