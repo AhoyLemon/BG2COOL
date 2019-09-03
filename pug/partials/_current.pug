@@ -78,7 +78,12 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
 
     .serve-box(v-if="coolCSS")
       .serve-desc And serve that file from
-      span bg2.cool
-      label.toggle
-        input(type="checkbox")
-      span my website
+      .serve-toggle
+        span(@click="bg.localFile = false") bg2.cool
+        label.toggle(v-bind:class="{'left' : !bg.localFile, 'right' : bg.localFile}")
+          input(type="checkbox" v-model="bg.localFile")
+          span.visual-toggle
+        span(@click="bg.localFile = true") my website
+      
+      .button-holder(v-if="bg.localFile")
+        a.button(:href="bg.pattern" download) Download file ↓

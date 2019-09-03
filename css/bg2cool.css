@@ -136,6 +136,26 @@ main .code-holder button:hover, main .code-holder button:focus { background-imag
 
 main .code-holder button:active { -webkit-box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
 
+main .serve-box label.toggle { width: 70px; height: 25px; display: inline-block; cursor: pointer; padding: 10px; /* &.left:hover { .visual-toggle:after { transform: translateX(5px); } } &.right:hover { .visual-toggle:after { transform: translateX(45px); } } */ }
+
+main .serve-box label.toggle input { position: absolute; opacity: 0; }
+
+main .serve-box label.toggle .visual-toggle { background: rgba(0, 0, 0, 0.3); width: 100%; display: block; border-radius: 10px; position: relative; height: 10px; -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.6); box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.6); }
+
+main .serve-box label.toggle .visual-toggle:after { content: ' '; display: inline-block; background: #424242; border-radius: 50%; width: 26px; height: 26px; position: absolute; top: -10px; left: -10px; -webkit-transition: -webkit-transform 0.3s ease; transition: -webkit-transform 0.3s ease; -o-transition: transform 0.3s ease; transition: transform 0.3s ease; transition: transform 0.3s ease, -webkit-transform 0.3s ease; background-image: -webkit-radial-gradient(60% 60%, farthest-side, #6f6f6f, #3c3c3c); background-image: -o-radial-gradient(60% 60%, farthest-side, #6f6f6f, #3c3c3c); background-image: radial-gradient(farthest-side at 60% 60%, #6f6f6f, #3c3c3c); }
+
+main .serve-box label.toggle:hover .visual-toggle:after { background-image: -webkit-radial-gradient(60% 60%, farthest-side, #30caf9, #218aaa); background-image: -o-radial-gradient(60% 60%, farthest-side, #30caf9, #218aaa); background-image: radial-gradient(farthest-side at 60% 60%, #30caf9, #218aaa); }
+
+main .serve-box label.toggle.right .visual-toggle:after { -webkit-transform: translateX(40px); -ms-transform: translateX(40px); transform: translateX(40px); }
+
+main .serve-box .serve-toggle { display: inline-block; padding-right: 10px; }
+
+main .serve-box .button-holder { display: inline-block; }
+
+main .serve-box .button-holder .button { display: inline-block; text-transform: uppercase; text-decoration: none; letter-spacing: -0.05em; padding: 0.5em 1em; border: 1px solid currentColor; color: #2fb7e0; }
+
+main .serve-box .button-holder .button:hover { background: #2fb7e0; color: white; }
+
 main article { -webkit-transition: background-image 1s ease; -o-transition: background-image 1s ease; transition: background-image 1s ease; }
 
 main article.cool { color: white; text-shadow: -0.05em -0.05em 0.1em black, 0.05em 0.05em 0.1em black; }

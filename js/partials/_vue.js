@@ -16,6 +16,7 @@ var app = new Vue({
       positionHorizontal: 50,
       positionVertical: 50,
       cover:false,
+      localFile: false,
       borders: {
         width: 20,
         slice: 10
@@ -60,6 +61,21 @@ var app = new Vue({
       }  
     },
 
+    startDownload(u) {
+      let self = this;
+      //download(u);
+      this.$http({
+        method: 'get',
+        url: u,
+        responseType: 'arraybuffer'
+      })
+      .then(response => {
+        this.forceFileDownload(response)  ;
+      })
+      .catch(() => console.log('error occured'));
+      //alert(u);
+    },
+
     formatDate(d) {
       const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
       const MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
@@ -75,7 +91,7 @@ var app = new Vue({
       let self = this;
       let s = {};
       if (self.bgPattern) {
-        s.backgroundImage = 'url('+self.bgPattern+')';
+        s.backgroundImage = 'url('+self.bg.pattern+')';
       }
       if (self.bg.size == self.settings.maxSize) {
         s.backgroundSize = 'cover';
@@ -93,7 +109,7 @@ var app = new Vue({
       }
 
       if (self.bg.show.borders) {
-        s.borderImageSource = 'url('+self.bgPattern+')';
+        s.borderImageSource = 'url('+self.bg.pattern+')';
         s.borderWidth = self.bg.borders.width + 'px';
         s.borderImageSlice = self.bg.borders.slice + '%';
       }
@@ -105,12 +121,19 @@ var app = new Vue({
       let self = this;
       let pre = "";
 
+      let patternURL = "";
+      if (self.bg.localFile) {
+        patternURL = self.bg.pattern;
+      } else {
+        patternURL = '"' + siteURL + '/' + self.bg.pattern + '"';
+      }
+
       // GENERIC COOL BG STYLE
-      if (self.bg.show.body || self.bg.show.inner || self.bg.show.button) {
+      if (self.bg.show.body || self.bg.show.headline || self.bg.show.inner || self.bg.show.button) {
 
         pre += '.cool {\n';
-        if (self.bgPattern) {
-          pre += '  background-image:url('+self.bgPattern+');\n';
+        if (self.bg.pattern) {
+          pre += '  background-image:url('+patternURL+');\n';
         }
 
         if (self.bg.size == self.settings.maxSize) {
@@ -152,7 +175,7 @@ var app = new Vue({
       // BORDER STYLES
       if (self.bg.show.borders) {
         pre += '\n\n.cool-borders {\n';
-        pre += '  border-image-source: url('+self.bgPattern+');\n';
+        pre += '  border-image-source: url('+patternURL+');\n';
         pre += '  border-width: '+self.bg.borders.width+'px;\n';
         pre += '  border-image-slice: '+self.bg.borders.slice+'%;\n';
         pre += '  border-image-repeat: round;\n';
@@ -162,6 +185,8 @@ var app = new Vue({
 
       return pre;
     },
+
+
 
   },
 

@@ -1,3 +1,7 @@
+const siteURL = "http://bg2.cool"
+
+
+
 
 const begin = {
   s: {
