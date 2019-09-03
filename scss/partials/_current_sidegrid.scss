@@ -73,6 +73,7 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   // SERVE THIS FILE WHERE? MIKE JONES
   .serve-box {
     label.toggle { width:70px; height:25px; display: inline-block; cursor: pointer; padding:10px;
+
       input { position: absolute;; opacity: 0; }
       .visual-toggle { background: rgba(0, 0, 0, .3); width:100%; display: block; border-radius: 10px; position: relative; height:10px; box-shadow: inset 5px 5px 5px rgba(0,0,0,0.6);
         &:after { content:' '; display: inline-block; background:rgb(66,66,66); border-radius: 50%; width:26px; height:26px; @include position(absolute,-10px,null,null,-10px); transition: transform 0.3s ease;
@@ -85,16 +86,12 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
       &.right {
         .visual-toggle:after { transform: translateX(40px); }
       }
-      /*
-      &.left:hover {
-        .visual-toggle:after { transform: translateX(5px); }
-      }
-      &.right:hover {
-        .visual-toggle:after { transform: translateX(45px); }
-      }
-      */
     }
-    .serve-toggle { display: inline-block; padding-right: 10px; }
+    .serve-toggle { display: inline-block; padding-right: 10px;
+      > span { cursor: pointer;
+        &:hover { color:#30caf9; }
+      }
+    }
     .button-holder { display: inline-block;
       .button { display: inline-block; text-transform: uppercase; text-decoration: none; letter-spacing: -0.05em; padding: 0.5em 1em; border:1px solid currentColor; color:#2fb7e0;
         &:hover { background:#2fb7e0; color:white; }

@@ -136,7 +136,7 @@ main .code-holder button:hover, main .code-holder button:focus { background-imag
 
 main .code-holder button:active { -webkit-box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
 
-main .serve-box label.toggle { width: 70px; height: 25px; display: inline-block; cursor: pointer; padding: 10px; /* &.left:hover { .visual-toggle:after { transform: translateX(5px); } } &.right:hover { .visual-toggle:after { transform: translateX(45px); } } */ }
+main .serve-box label.toggle { width: 70px; height: 25px; display: inline-block; cursor: pointer; padding: 10px; }
 
 main .serve-box label.toggle input { position: absolute; opacity: 0; }
 
@@ -149,6 +149,10 @@ main .serve-box label.toggle:hover .visual-toggle:after { background-image: -web
 main .serve-box label.toggle.right .visual-toggle:after { -webkit-transform: translateX(40px); -ms-transform: translateX(40px); transform: translateX(40px); }
 
 main .serve-box .serve-toggle { display: inline-block; padding-right: 10px; }
+
+main .serve-box .serve-toggle > span { cursor: pointer; }
+
+main .serve-box .serve-toggle > span:hover { color: #30caf9; }
 
 main .serve-box .button-holder { display: inline-block; }
 
