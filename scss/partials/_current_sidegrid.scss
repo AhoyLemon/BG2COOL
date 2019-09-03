@@ -4,25 +4,24 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   overflow-y: auto;
 
   article { background:white; margin:3em auto; width:100%; max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.15); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
-    box-sizing: content-box; max-width: 580px; padding:2em;
+    box-sizing: content-box; max-width: 580px; padding:2em; position: relative;
   }
 
-  
-  /*
-  label { display: block;
-    > span { display: block; }
+  button.hamburger { @include position(absolute,10px,10px);  padding: 0; background: transparent; border: none; cursor: pointer;
+    svg { width:38px; height: 38px;
+      .fill { fill: transparent; }
+      .close { opacity: 0; }
+    }
+    &:hover {
+      svg .fill { fill:$yellow; }
+    }
   }
-  */
 
-  article { display: grid; grid-gap: 20px;
-    //.name-holder { grid-column: span 2; }
-  }
+  article { display: grid; grid-gap: 20px; }
 
   .name-holder {
     .label { text-transform: uppercase; letter-spacing: 0.1em; }
   }
-
-
 
   // Pattern Text Description
   .description {
@@ -49,32 +48,11 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   }
 
   .toggles {
-    .labels {  }
-
-    /*
-    label { background:#313131; color:white; padding:1em 2em; position: relative; display: inline-block; cursor: pointer; margin-right: 0.5em;
-      input[type="checkbox"] { position: absolute; opacity: 0; }
-      .check { position: absolute; top:20%; right: 0px; transform: scale(0.2); opacity: 0; transition:transform 1s ease; text-shadow: none; font-size:140%; }
-
-      &.active { 
-        .check { transform: scale(1); opacity: 1; }
-      }
-
-      &:hover { background:rgb(40,40,90); }
-    }
-    */
 
     label {
-      cursor: pointer;
-      display:inline-block;
-      padding:1em 2em 1em 1em;
-			position: relative;
-      //border-radius: 2px;
-      margin-right: -4px;
+      cursor: pointer; display:inline-block; padding:1em 2em 1em 1em; position: relative; margin-right: -4px;
       input[type="checkbox"] { position: absolute; opacity: 0; }
-      .check { position: absolute; top:4px; right: 6px;transition:all 0.3s ease; text-shadow: none; font-size:180%; color:#e9e6e4;
-        //filter: drop-shadow(1px 1px 0 crimson);
-        text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white
+      .check { position: absolute; top:4px; right: 6px;transition:all 0.3s ease; text-shadow: none; font-size:180%; color:#e9e6e4; text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white
       }
       &.active { 
         .check { color:#83d244; }
@@ -109,7 +87,9 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
     box-shadow: inset 0 0 0.5em rgba(0,0,0,0.65), 1em 1em 1em rgba(0,0,0,0.5); 
   }
 
-  .name.cool { background-attachment: fixed; color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
+  .name.cool { 
+    //background-attachment: fixed;
+    color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
   label.cool { transition:background-size 0.5s ease; color:white !important; text-shadow: -0.1em -0.1em 0.1em black, 0.1em 0.1em 0.1em black;
     &:hover, &:focus { background-size:120% !important; }
     .check { opacity:0.25; }

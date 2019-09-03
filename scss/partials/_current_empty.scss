@@ -1,0 +1,5 @@
+main.nopattern { background:#131313; @include flex-center();
+  h1 { font-family: 'Oswald', sans-serif; font-size:140px; line-height: 100%; text-align: center; background-image:url(../patterns/random/stars.gif);
+    color: white; background-clip: text; -webkit-text-fill-color: transparent;  background-size: 12%;
+  }
+}

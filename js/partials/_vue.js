@@ -34,6 +34,7 @@ var app = new Vue({
   methods: {
     setPattern(pattern) {
       let self = this;
+      self.phase = 'browse patterns';
       self.currentPattern = pattern;
       self.activeTitle = pattern.title;
       
@@ -160,14 +161,6 @@ var app = new Vue({
 
 
       return pre;
-    },
-
-    titleFontSize() {
-      let self = this;
-      //return (100 / self.bg.title.length) + 'px';
-      return {
-        fontSize: (1100 / self.bg.title.length) + 'px'
-      };
     },
 
   },

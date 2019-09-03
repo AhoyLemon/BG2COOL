@@ -1,0 +1,21 @@
+main.about {
+  .name.lemon { font-size:200px; font-family:"Oswald"; line-height: 90%; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom:30px;
+    transform: scale(1.17) translateX(-2%);
+    transform-origin: center left; color:rgba(0,0,0,0.9);
+  }
+  p { margin-bottom: 1em;}
+  article { padding: 20px; background:#e5e828; }
+
+
+  button.hamburger {
+    svg { 
+      .open { opacity: 0; }
+      .close { opacity: 1; }
+    }
+  }
+
+
+  .lemon-coversheet {@include position(absolute,0,0,0,0); background-color:$yellow;
+    background-image:url(../svg/lemon-isolated.svg); background-size:15%; background-repeat: no-repeat; background-position: bottom right;
+  }
+}
