@@ -1,11 +1,15 @@
 main.about {
+  span.label { position: relative; z-index: 3; font-size: 190%; letter-spacing: 0.7em }
   .name.lemon { font-size:200px; font-family:"Oswald"; line-height: 90%; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom:30px;
-    transform: scale(1.17) translateX(-2%);
-    transform-origin: center left; color:rgba(0,0,0,0.9);
+    transform: scale(1.1);
+    transform-origin: center left; color:rgba(200,20,200,0.8); text-shadow: 0.18em 0.18em 0 rgba($yellow,0.8), -0.16em -0.16em 0 rgba(#2fb7e0,0.8);
+    margin-bottom: 60px;
   }
-  p { margin-bottom: 1em;}
   article { padding: 20px; background:#e5e828; }
 
+  a { color:#1d87a8;
+    &:visited { color:#8124a0; }
+  }
 
   button.hamburger {
     svg { 
@@ -15,7 +19,13 @@ main.about {
   }
 
 
+  /*
   .lemon-coversheet {@include position(absolute,0,0,0,0); background-color:$yellow;
     background-image:url(../svg/lemon-isolated.svg); background-size:15%; background-repeat: no-repeat; background-position: bottom right;
+  }
+  */
+
+  .wedge { float: right; width:120px; margin-left: 30px;
+    //img { width:100%; }
   }
 }

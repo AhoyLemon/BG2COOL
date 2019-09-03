@@ -7,6 +7,7 @@ var app = new Vue({
     settings: {
       maxSize: 120
     },
+    formURL: null,
     cssCopied: false,
     bg: {
       pattern: null,
@@ -16,7 +17,7 @@ var app = new Vue({
       positionHorizontal: 50,
       positionVertical: 50,
       cover:false,
-      localFile: false,
+      localFile: true,
       borders: {
         width: 20,
         slice: 10
@@ -61,19 +62,15 @@ var app = new Vue({
       }  
     },
 
-    startDownload(u) {
+    gForm(u, t) {
       let self = this;
-      //download(u);
-      this.$http({
-        method: 'get',
-        url: u,
-        responseType: 'arraybuffer'
-      })
-      .then(response => {
-        this.forceFileDownload(response)  ;
-      })
-      .catch(() => console.log('error occured'));
-      //alert(u);
+      //self.phase = "show form";
+      self.formURL = u;
+
+      if (t == "blank") {
+        window.open(self.formURL);
+      }
+
     },
 
     formatDate(d) {
@@ -123,7 +120,9 @@ var app = new Vue({
 
       let patternURL = "";
       if (self.bg.localFile) {
-        patternURL = self.bg.pattern;
+        //patternURL = self.bg.pattern;
+        let p = self.bg.pattern.split("/");
+        patternURL = p[(p.length - 1)];
       } else {
         patternURL = '"' + siteURL + '/' + self.bg.pattern + '"';
       }

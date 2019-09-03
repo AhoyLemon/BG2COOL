@@ -84,11 +84,11 @@ main { position: fixed; top: 0; right: 440px; bottom: 0; left: 0; font-family: '
 
 main article { background: white; margin: 3em auto; width: 100%; max-width: 666px; /* padding:2em; */ border: 2px solid rgba(0, 0, 0, 0.15); -webkit-box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5); box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.5); -webkit-box-sizing: content-box; box-sizing: content-box; max-width: 580px; padding: 2em; position: relative; }
 
-main button.hamburger { position: absolute; top: 10px; right: 10px; padding: 0; background: transparent; border: none; cursor: pointer; }
+main button.hamburger { position: absolute; top: 13px; right: 13px; padding: 0; background: transparent; border: none; cursor: pointer; }
 
-main button.hamburger svg { width: 38px; height: 38px; }
+main button.hamburger svg { width: 42px; height: 42px; }
 
-main button.hamburger svg .fill { fill: transparent; }
+main button.hamburger svg .fill { fill: white; }
 
 main button.hamburger svg .close { opacity: 0; }
 
@@ -166,7 +166,7 @@ main article.cool { color: white; text-shadow: -0.05em -0.05em 0.1em black, 0.05
 
 main article.cool .name.uncool { color: white !important; }
 
-main article.cool a { color: yellow; }
+main article.cool a { color: #e5e828; }
 
 main article.cool label.uncool { color: black; text-shadow: none; }
 
@@ -190,16 +190,22 @@ main .name.uncool { font-size: 32px; color: black; text-transform: none; backgro
 
 main label.uncool { background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f1ee), to(#fff)) !important; background-image: -webkit-linear-gradient(top, #f4f1ee, #fff) !important; background-image: -o-linear-gradient(top, #f4f1ee, #fff) !important; background-image: linear-gradient(top, #f4f1ee, #fff) !important; -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204, 198, 197, 0.5); }
 
-main.about .name.lemon { font-size: 200px; font-family: "Oswald"; line-height: 90%; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom: 30px; -webkit-transform: scale(1.17) translateX(-2%); -ms-transform: scale(1.17) translateX(-2%); transform: scale(1.17) translateX(-2%); -webkit-transform-origin: center left; -ms-transform-origin: center left; transform-origin: center left; color: rgba(0, 0, 0, 0.9); }
+main.about span.label { position: relative; z-index: 3; font-size: 190%; letter-spacing: 0.7em; }
 
-main.about p { margin-bottom: 1em; }
+main.about .name.lemon { font-size: 200px; font-family: "Oswald"; line-height: 90%; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom: 30px; -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); -webkit-transform-origin: center left; -ms-transform-origin: center left; transform-origin: center left; color: rgba(200, 20, 200, 0.8); text-shadow: 0.18em 0.18em 0 rgba(229, 232, 40, 0.8), -0.16em -0.16em 0 rgba(47, 183, 224, 0.8); margin-bottom: 60px; }
 
 main.about article { padding: 20px; background: #e5e828; }
+
+main.about a { color: #1d87a8; }
+
+main.about a:visited { color: #8124a0; }
 
 main.about button.hamburger svg .open { opacity: 0; }
 
 main.about button.hamburger svg .close { opacity: 1; }
 
 main.about .lemon-coversheet { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: #e5e828; background-image: url(../svg/lemon-isolated.svg); background-size: 15%; background-repeat: no-repeat; background-position: bottom right; }
+
+main.about .wedge { float: right; width: 120px; margin-left: 30px; }
 
 /*# sourceMappingURL=bg2cool.css.map */

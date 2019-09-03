@@ -7,9 +7,9 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
     box-sizing: content-box; max-width: 580px; padding:2em; position: relative;
   }
 
-  button.hamburger { @include position(absolute,10px,10px);  padding: 0; background: transparent; border: none; cursor: pointer;
-    svg { width:38px; height: 38px;
-      .fill { fill: transparent; }
+  button.hamburger { @include position(absolute,13px,13px);  padding: 0; background: transparent; border: none; cursor: pointer;
+    svg { width:42px; height: 42px;
+      .fill { fill: white; }
       .close { opacity: 0; }
     }
     &:hover {
@@ -109,7 +109,7 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   // COOL STYLES
   article.cool { color:white; text-shadow: -0.05em -0.05em 0.1em black, 0.05em 0.05em 0.1em black;
     .name.uncool { color: white !important; }
-    a{ color: yellow; }
+    a{ color: $yellow; }
     label.uncool { color:black; text-shadow: none; }
   }
 

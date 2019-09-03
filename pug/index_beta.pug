@@ -13,15 +13,16 @@ doctype html
 html(lang="en")
   head
     title BG2 😎 COOL
-    link(href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Nunito|Oswald:700|Vollkorn&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Nunito|Oswald:700" rel="stylesheet")
     link(href="css/bg2cool.css" rel="stylesheet")
     
   body
-    #app
+    #app(v-cloak)
 
       include partials/_nopattern.pug
       include partials/_current.pug
       include partials/_about.pug
+      //-include partials/_form.pug
 
       section.patterns
         .pattern-holder

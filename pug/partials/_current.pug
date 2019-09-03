@@ -22,6 +22,12 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
         span by 
         a(:href="currentPattern.author.url" target="_blank")
           span.author(v-text="currentPattern.author.name")
+      
+      .source-holder(v-if="currentPattern.source")
+        span from 
+        a(:href="currentPattern.source.url" target="_blank")
+          span.author(v-text="currentPattern.source.name")
+
       .date-holder
         span added 
         time {{formatDate(currentPattern.date)}}

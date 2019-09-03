@@ -1,5 +1,5 @@
-main.about(v-else-if="phase == 'about'" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject")
-  //.lemon-coversheet
+main.form
+  .lemon-coversheet
 
 
   article(v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject")
@@ -10,25 +10,16 @@ main.about(v-else-if="phase == 'about'" v-bind:class="{ cool: bg.show.body, unco
 
     p 
       | Visit 
-      a.sitelink(href="https://ahoylemon.xyz" target="_blank") ahoylemon.xyz
+      a(href="https://ahoylemon.xyz") ahoylemon.xyz
       |  for more dumb websites like this one.
     
-    
-      
-      
     p 
-      a(href="https://ahoylemon.xyz" target="_blank")
-        img.wedge(src="svg/wedge-alone.svg")
-        
-      | The patterns for this website have been sourced from various places. Do you want to 
-      a.sitelink(href="https://forms.gle/8Dorg9pEQsUE4mmX6" target="_blank") add a pattern
-      |  to this site? Or do you want to 
-      a.sitelink(href="https://forms.gle/7x7HHEpQBQQZ2LPh8" target="_blank") report an issue
-      | ? Or maybe you just want to check out the 
-      a.sitelink(href="https://github.com/AhoyLemon/BG2COOL" target="_blank") GitHub Repo
-      | .
-
-    
+      | The patterns for this website have been sourced from various places. Do you want to add a pattern to the site? Great! Please 
+      a(@click="gForm('https://forms.gle/8Dorg9pEQsUE4mmX6', 'blank')" href="https://forms.gle/8Dorg9pEQsUE4mmX6") use this form
+      |  to do so. Or if you think we have made a mistake with our patterns, you can 
+      a(href="#") use this form
+      | . Finally, if you're using one of these patterns, 
+      a(href="#") let us know.
 
 
     //-button.hamburger(v-on:click="phase = 'browse patterns'")
