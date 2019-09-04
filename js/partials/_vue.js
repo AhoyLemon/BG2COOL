@@ -203,6 +203,13 @@ var app = new Vue({
 
   mounted: function() {
     let self = this;
+
+    var video = document.getElementById("NeonVideo");
+    video.oncanplaythrough = function() {
+        video.muted = true;
+        video.play();
+    };
+
   }
 
 });
