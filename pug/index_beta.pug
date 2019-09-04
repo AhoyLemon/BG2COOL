@@ -11,10 +11,8 @@ include partials/_mixins
 
 doctype html
 html(lang="en")
-  head
-    title BG2 😎 COOL
-    link(href="https://fonts.googleapis.com/css?family=Nunito|Oswald:700" rel="stylesheet")
-    link(href="css/bg2cool.css" rel="stylesheet")
+  
+  include partials/_head.pug
     
   body
     #app(v-cloak)
