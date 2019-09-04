@@ -88,6 +88,10 @@ var app = new Vue({
     learnAbout() {
       let self = this;
       self.phase = 'about';
+
+      let a = new Audio('audio/bylemon.mp3');
+      a.play();
+      
       dataLayer.push(
         [
           {'About Clicked': '1'}
