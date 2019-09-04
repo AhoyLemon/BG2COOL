@@ -50,7 +50,7 @@
       </main>
       <main v-else-if="currentPattern &amp;&amp; phase != 'about'" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject">
         <article v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject">
-          <button class="hamburger" v-on:click="phase = 'about'">
+          <button class="hamburger" v-on:click="learnAbout()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
               <circle class="fill" cx="50.6" cy="49.7" r="42"></circle>
               <path class="outline" d="M50 96C24.6 96 4 75.4 4 50S24.6 4 50 4s46 20.6 46 46-20.6 46-46 46zm0-86.2C27.8 9.8 9.8 27.8 9.8 50s18 40.3 40.2 40.3S90.3 72.2 90.3 50 72.2 9.8 50 9.8z"></path>
@@ -269,7 +269,6 @@
     <div class="javascripts">
       <script src="js/libraries/vue.full.js"></script>
       <script src="js/min/bg2cool.min.js"></script>
-      <!-- Global site tag (gtag.js) - Google Analytics -->-->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15129990-33"></script>
       <script>
         window.dataLayer = window.dataLayer || [];

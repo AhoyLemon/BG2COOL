@@ -47,6 +47,15 @@ var app = new Vue({
 
       self.bg.title = pattern.title;
       self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
+
+
+      dataLayer.push(
+        [
+          {'Pattern Name': pattern.title}
+        ]
+      );
+
+
     },
 
     copyCSS() {
@@ -73,6 +82,17 @@ var app = new Vue({
       if (t == "blank") {
         window.open(self.formURL);
       }
+
+    },
+
+    learnAbout() {
+      let self = this;
+      self.phase = 'about';
+      dataLayer.push(
+        [
+          {'About Clicked': '1'}
+        ]
+      );
 
     },
 
