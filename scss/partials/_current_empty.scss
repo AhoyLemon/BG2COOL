@@ -6,11 +6,11 @@ main.nopattern { background:#131313; @include flex-center();
 
   article { box-shadow: -8em 8em 0 rgba(magenta,0.8), 8em -8em 0 rgba(cyan,0.8); 
     animation-name: unminimal;
-    animation-duration: 6.3s;
+    animation-duration: 4.9s;
     animation-delay: 0;
     animation-iteration-count: infinite;
     animation-direction: forward;
-    animation-timing-function: ease;
+    animation-timing-function: linear;
     //animation-fill-mode: both;
   }
 
@@ -21,9 +21,9 @@ main.nopattern { background:#131313; @include flex-center();
 
 
 @keyframes unminimal {
-  0%   { box-shadow: -8em -8em 0 rgba(magenta,0.8), 8em 8em 0 rgba(cyan,0.8); }
-  25%  {  box-shadow: 8em -8em 0 rgba(magenta,0.8), -8em 8em 0 rgba(cyan,0.8);}
-  50%  {  box-shadow: 8em 8em 0 rgba(magenta,0.8), -8em -8em 0 rgba(cyan,0.8);}
-  75%  { box-shadow: -8em 8em 0 rgba(magenta,0.8), 8em -8em 0 rgba(cyan,0.8); }
-  100%  { box-shadow: -8em -8em 0 rgba(magenta,0.8), 8em 8em 0 rgba(cyan,0.8); }
+  0%   { box-shadow: -8em -8em 0 rgba(magenta,0.8), 4em 4em 0 rgba(cyan,0.8); }
+  25%  {  box-shadow: 4em -4em 0 rgba(magenta,0.8), -8em 8em 0 rgba(cyan,0.8);}
+  50%  {  box-shadow: 8em 8em 0 rgba(magenta,0.8), -4em -4em 0 rgba(cyan,0.8);}
+  75%  { box-shadow: -4em 4em 0 rgba(magenta,0.8), 8em -8em 0 rgba(cyan,0.8); }
+  100%  { box-shadow: -8em -8em 0 rgba(magenta,0.8), 4em 4em 0 rgba(cyan,0.8); }
 }
