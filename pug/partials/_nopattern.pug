@@ -1,4 +1,7 @@
 main.nopattern(v-if="!currentPattern")
+  .video-holder
+    video(autoplay loop muted controls)
+      source(src="patterns/neon.mp4" type="video/mp4")
   article
     h1 
       span.one THAT'S
@@ -18,4 +21,5 @@ main.nopattern(v-if="!currentPattern")
     p 
       | Browse through the patterns 
       span.to-the-right to the right, 
+      span.below below, swipe right for more, 
       | play with the options, and make a radical website.

@@ -80,7 +80,9 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
     .code-holder
       pre(v-if="coolCSS")
         code#CopyCode(v-html="coolCSS")
-      button(@click="copyCSS()") Copy CSS
+      button(@click="copyCSS()" v-bind:disabled="cssCopyMatch") 
+        span(v-if="cssCopyMatch") Copied ✔
+        span(v-else) Copy CSS
 
     .serve-box(v-if="coolCSS")
       .serve-desc And serve that file from

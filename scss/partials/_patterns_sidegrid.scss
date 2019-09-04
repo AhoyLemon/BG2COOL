@@ -4,7 +4,7 @@ $gapSize: 0;
 section.patterns { overflow-y: auto;
   
   .pattern { position: relative; height:100%; min-height: $boxSize; @include flex-center(); cursor: pointer; background-size: 50%;
-    .name { text-align: center; color:white;  font-family: 'Oswald', sans-serif; text-shadow: 3px 3px 2px #111, -1px -1px 0 #111;  font-size:30px;
+    .name { text-align: center; color:white;  font-family:$headline; text-shadow: 3px 3px 2px #111, -1px -1px 0 #111;  font-size:30px;
       transform:scale(0.2); opacity:0; transition: opacity 0.05s linear, transform 0.3s ease;
     }
     &:hover, &.current { 

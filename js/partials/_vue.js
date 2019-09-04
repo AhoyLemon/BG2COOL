@@ -8,7 +8,7 @@ var app = new Vue({
       maxSize: 120
     },
     formURL: null,
-    cssCopied: false,
+    copyMatch: null,
     bg: {
       pattern: null,
       title: null,
@@ -37,6 +37,8 @@ var app = new Vue({
     setPattern(pattern) {
       let self = this;
       self.phase = 'browse patterns';
+      self.cssCopied = false;
+
       self.currentPattern = pattern;
       self.activeTitle = pattern.title;
       
@@ -48,18 +50,19 @@ var app = new Vue({
     },
 
     copyCSS() {
-      var CodeBlock = document.querySelector('#CopyCode');  
-      var range = document.createRange();  
-      range.selectNode(CodeBlock);  
-      window.getSelection().addRange(range);  
-      try {  
-        // Now that we've selected the anchor text, execute the copy command  
-        var successful = document.execCommand('copy');  
-        var msg = successful ? 'successful' : 'unsuccessful';  
-        console.log('Copy email command was ' + msg);  
-      } catch(err) {  
-        alert('Oops, unable to copy');  
-      }  
+      
+      let self = this;
+
+      const copyText = document.getElementById("CopyCode").textContent;
+      const textArea = document.createElement('textarea');
+      textArea.textContent = copyText;
+      document.body.append(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+
+      self.copyMatch = self.coolCSS;
+
     },
 
     gForm(u, t) {
@@ -184,6 +187,15 @@ var app = new Vue({
 
       return pre;
     },
+
+    cssCopyMatch() {
+      let self = this;
+      if (self.coolCSS == self.copyMatch) {
+        return true;
+      } else {
+        return false;
+      }
+    }
 
 
 
