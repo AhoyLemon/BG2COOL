@@ -290,11 +290,8 @@ main.nopattern {
   main.nopattern video {
     position: absolute;
     top: 0;
-    width: 100%;
-    height: 99vh;
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3); }
+    width: auto;
+    height: 100%; }
   main.nopattern article {
     max-width: 490px; }
   main.nopattern h1 {

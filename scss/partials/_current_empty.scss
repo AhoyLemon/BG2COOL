@@ -5,8 +5,7 @@ main.nopattern { background:#131313; @include flex-center();
   //background-image:url(https://lh3.googleusercontent.com/-EIqKvwBEOQc/XW8u4-FhUnI/AAAAAAAAjkU/8NTAXKpsxnwuRTNnVSXiycQg9j2z6rTewCK8BGAs/s466/2019-09-03.gif); //background-size:cover; background-position: center;
 
   .video-holder { overflow: hidden; @include position(absolute,0,0,0,0) }
-  video { position: absolute; top:0; width:100%; height:99vh; transform: scale(1.3)
-  }
+  video { position: absolute; top:0; width: auto; height: 100%; }
 
   article { max-width: 490px;}
   h1 { font-family: $headline; font-size:110px; line-height: 90%; letter-spacing: -0.06em; text-align:justify;// background-image:url(../patterns/random/stars.gif);
