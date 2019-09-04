@@ -1,8 +1,8 @@
 $boxSize:220px;
 $gapSize: 0;
 
-section.patterns { @include position(fixed,0,0,0); width:($boxSize * 2); overflow-y: auto;
-  .pattern-holder { display:grid; grid-template-columns: repeat(2,1fr);  }
+section.patterns { overflow-y: auto;
+  
   .pattern { position: relative; height:100%; min-height: $boxSize; @include flex-center(); cursor: pointer; background-size: 50%;
     .name { text-align: center; color:white;  font-family: 'Oswald', sans-serif; text-shadow: 3px 3px 2px #111, -1px -1px 0 #111;  font-size:30px;
       transform:scale(0.2); opacity:0; transition: opacity 0.05s linear, transform 0.3s ease;
@@ -10,5 +10,24 @@ section.patterns { @include position(fixed,0,0,0); width:($boxSize * 2); overflo
     &:hover, &.current { 
       .name { transform: scale(1); opacity: 1; }
     }
+  }
+}
+
+
+@media (orientation: landscape) { 
+  section.patterns { @include position(fixed,0,0,0); width:($boxSize * 2);
+    .pattern-holder { display:grid; grid-template-columns: repeat(2,1fr);  }
+  }
+}
+
+@media (orientation: portrait) { 
+  section.patterns { @include position(fixed,null,0,0,0); height:$boxSize;
+    
+    .pattern-holder {   display: flex; flex-wrap: nowrap; overflow-x: auto;
+      .pattern { width:$boxSize;
+        flex: 0 0 auto;
+      }
+    }
+    
   }
 }
