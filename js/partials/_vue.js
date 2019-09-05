@@ -9,6 +9,7 @@ var app = new Vue({
     },
     formURL: null,
     copyMatch: null,
+    allPatterns: allPatterns,
     bg: {
       pattern: null,
       title: null,
@@ -95,6 +96,27 @@ var app = new Vue({
       
       sendEvent('About Clicked',pattern.title,pattern.title);
 
+    },
+
+    matchQuery(z) {
+      let self = this;
+      let pat = getParams()['pattern'];
+      let loadPattern = false;
+      if (pat) {
+        pat = pat.replace(/%20/g, " ");
+        self.allPatterns.forEach(function(e) {
+          if (pat == e.title) {
+            loadPattern = true;
+            self.setPattern(e);
+
+          }
+        });
+      }
+    },
+
+    backButton(e) {
+      let self = this;
+      this.matchQuery(e);
     },
 
     formatDate(d) {
@@ -225,12 +247,41 @@ var app = new Vue({
   mounted: function() {
     let self = this;
 
-    var video = document.getElementById("NeonVideo");
-    video.oncanplaythrough = function() {
-        video.muted = true;
-        video.play();
-    };
 
+
+    let pat = getParams()['pattern'];
+    let loadPattern = false;
+    if (pat) {
+      pat = pat.replace(/%20/g, " ");
+      self.allPatterns.forEach(function(e) {
+        if (pat == e.title) {
+          loadPattern = true;
+          self.setPattern(e);
+
+        }
+      });
+    }
+
+    if (!loadPattern) {
+      var video = document.getElementById("NeonVideo");
+      video.oncanplaythrough = function() {
+          video.muted = true;
+          video.play();
+      };
+    }
+
+    window.onpopstate = function(event) {
+      self.backButton(event);
+    };
+  },
+  
+
+  created () {
+    let self = this;
+    document.addEventListener("backbutton", self.backButton(), false);
+  },
+  beforeDestroy () {
+    document.removeEventListener("backbutton", this.backButton());
   }
 
 });

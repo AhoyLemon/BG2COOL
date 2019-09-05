@@ -135,136 +135,9 @@
       </main>
       <section class="patterns">
         <div class="pattern-holder">
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Astroturf Argyle'}" style="background-image:url(patterns/anonymous/AstroturfArgyle.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Astroturf Argyle&quot;,&quot;folder&quot;:&quot;anonymous&quot;,&quot;file&quot;:&quot;AstroturfArgyle.gif&quot;,&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true})">
+          <figure class="pattern" v-for="pattern in allPatterns" v-bind:class="{current: activeTitle == pattern.title }" v-bind:style="{backgroundImage: 'url(patterns/'+pattern.folder+'/'+pattern.file+')'}" @click="setPattern(pattern)">
             <div class="name-holder">
-              <h2 class="name">Astroturf Argyle</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == '90’s Kitchen Plaid'}" style="background-image:url(patterns/anonymous/90sKitchenPlaid.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;90’s Kitchen Plaid&quot;,&quot;folder&quot;:&quot;anonymous&quot;,&quot;file&quot;:&quot;90sKitchenPlaid.gif&quot;,&quot;date&quot;:&quot;2019-07-05&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">90’s Kitchen Plaid</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Gold Chains On Velvet'}" style="background-image:url(patterns/anonymous/GoldChainsOnVelvet.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Gold Chains On Velvet&quot;,&quot;folder&quot;:&quot;anonymous&quot;,&quot;file&quot;:&quot;GoldChainsOnVelvet.gif&quot;,&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Gold Chains On Velvet</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Vaporwave Terrazzo'}" style="background-image:url(patterns/anonymous/VaporwaveTerrazzo.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Vaporwave Terrazzo&quot;,&quot;folder&quot;:&quot;anonymous&quot;,&quot;file&quot;:&quot;VaporwaveTerrazzo.gif&quot;,&quot;date&quot;:&quot;2019-07-03&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Vaporwave Terrazzo</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'A Denim Quilt'}" style="background-image:url(patterns/anonymous/denimquilt.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;A Denim Quilt&quot;,&quot;folder&quot;:&quot;anonymous&quot;,&quot;file&quot;:&quot;denimquilt.gif&quot;,&quot;date&quot;:&quot;2019-08-21&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">A Denim Quilt</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Crowskull'}" style="background-image:url(patterns/casper-spell/crowskull.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Crowskull&quot;,&quot;folder&quot;:&quot;casper-spell&quot;,&quot;file&quot;:&quot;crowskull.png&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Casper Spell&quot;,&quot;url&quot;:&quot;https://casperspell.wordpress.com&quot;},&quot;date&quot;:&quot;2019-07-26&quot;,&quot;description&quot;:&quot;&lt;p&gt;GHOST!&lt;/p&gt;&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Crowskull</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Bat Forever'}" style="background-image:url(patterns/random/batforever.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Bat Forever&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;batforever.jpg&quot;,&quot;date&quot;:&quot;2019-07-26&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Bat Forever</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Skull Cones'}" style="background-image:url(patterns/casper-spell/skullcone.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Skull Cones&quot;,&quot;folder&quot;:&quot;casper-spell&quot;,&quot;file&quot;:&quot;skullcone.jpg&quot;,&quot;author&quot;:{&quot;name&quot;:&quot;Casper Spell&quot;,&quot;url&quot;:&quot;https://casperspell.wordpress.com&quot;},&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Skull Cones</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Caroline'}" style="background-image:url(patterns/random/roses.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Caroline&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;roses.gif&quot;,&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Caroline</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Full of Stars'}" style="background-image:url(patterns/random/stars.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Full of Stars&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;stars.gif&quot;,&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Full of Stars</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Square Sprinkles'}" style="background-image:url(patterns/random/sprinkles.gif)" v-on:click="setPattern({&quot;title&quot;:&quot;Square Sprinkles&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;sprinkles.gif&quot;,&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Square Sprinkles</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Saved By...'}" style="background-image:url(patterns/random/thebell.svg)" v-on:click="setPattern({&quot;title&quot;:&quot;Saved By...&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;thebell.svg&quot;,&quot;date&quot;:&quot;2019-08-19&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Saved By...</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Hex’d'}" style="background-image:url(patterns/random/1049.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Hex’d&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;1049.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;source&quot;:{&quot;name&quot;:&quot;Background Tiles&quot;,&quot;url&quot;:&quot;https://background-tiles.com&quot;},&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Hex’d</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Marco’s Macaroons'}" style="background-image:url(patterns/random/macaroon.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Marco’s Macaroons&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;macaroon.jpg&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Marco’s Macaroons</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Gramma’s Shower Curtain'}" style="background-image:url(patterns/random/gramma-shower-curtain.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Gramma’s Shower Curtain&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;gramma-shower-curtain.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Gramma’s Shower Curtain</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Soft Pyjama Pants'}" style="background-image:url(patterns/random/128-133.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Soft Pyjama Pants&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;128-133.jpg&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Soft Pyjama Pants</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Koi Pond'}" style="background-image:url(patterns/random/koi-pond.png)" v-on:click="setPattern({&quot;title&quot;:&quot;Koi Pond&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;koi-pond.png&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Koi Pond</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Way Too Many Roses'}" style="background-image:url(patterns/random/too-many-roses.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Way Too Many Roses&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;too-many-roses.jpg&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Way Too Many Roses</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Ahoy, Lemons?'}" style="background-image:url(patterns/random/ahoylemons.svg)" v-on:click="setPattern({&quot;title&quot;:&quot;Ahoy, Lemons?&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;ahoylemons.svg&quot;,&quot;source&quot;:{&quot;name&quot;:&quot;Vecteezy&quot;,&quot;url&quot;:&quot;https://www.vecteezy.com&quot;},&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Ahoy, Lemons?</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Drowning In Bokeh'}" style="background-image:url(patterns/random/bokeh.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Drowning In Bokeh&quot;,&quot;folder&quot;:&quot;random&quot;,&quot;file&quot;:&quot;bokeh.jpg&quot;,&quot;date&quot;:&quot;2019-08-20&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Drowning In Bokeh</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Very Messy Pizza'}" style="background-image:url(patterns/getty/pizzamess.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Very Messy Pizza&quot;,&quot;folder&quot;:&quot;getty&quot;,&quot;file&quot;:&quot;pizzamess.jpg&quot;,&quot;source&quot;:{&quot;name&quot;:&quot;Getty&quot;,&quot;url&quot;:&quot;https://www.gettyimages.com&quot;},&quot;date&quot;:&quot;2019-09-03&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Very Messy Pizza</h2>
-            </div>
-          </figure>
-          <!--article.pattern()-->
-          <figure class="pattern" v-bind:class="{current: activeTitle == 'Hit With A Bowling Ball'}" style="background-image:url(patterns/pixabay/stars.jpg)" v-on:click="setPattern({&quot;title&quot;:&quot;Hit With A Bowling Ball&quot;,&quot;folder&quot;:&quot;pixabay&quot;,&quot;file&quot;:&quot;stars.jpg&quot;,&quot;date&quot;:&quot;2019-09-05&quot;,&quot;seamless&quot;:true})">
-            <div class="name-holder">
-              <h2 class="name">Hit With A Bowling Ball</h2>
+              <h2 class="name" v-text="pattern.title"></h2>
             </div>
           </figure>
         </div>
@@ -273,7 +146,6 @@
     <div class="javascripts">
       <script src="js/libraries/vue.full.js"></script>
       <script>const testing = true;</script>
-      <script src="js/min/bg2cool.min.js"></script>
       <script type="text/javascript">
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -284,6 +156,7 @@
         ga('send', 'pageview');
         
       </script>
+      <script src="js/min/bg2cool.min.js"></script>
       <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
       <script>
         TrackJS.install({

@@ -1,7 +1,10 @@
 section.patterns
   .pattern-holder
-    each pattern,index in allPatterns
-      //article.pattern()
+    //-each pattern,index in allPatterns
       figure.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}" style="background-image:url(patterns/"+pattern.folder+"/"+pattern.file+")" v-on:click="setPattern("+JSON.stringify(pattern)+")")
         .name-holder
           h2.name= pattern.title
+    
+    figure.pattern(v-for="pattern in allPatterns" v-bind:class="{current: activeTitle == pattern.title }" v-bind:style="{backgroundImage: 'url(patterns/'+pattern.folder+'/'+pattern.file+')'}" @click="setPattern(pattern)")
+      .name-holder
+        h2.name(v-text="pattern.title")
