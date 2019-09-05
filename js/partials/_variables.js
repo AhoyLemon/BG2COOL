@@ -43,19 +43,6 @@ const allPatterns = [
   },
 
   {
-    title: "Crowskull",
-    folder: 'casper-spell',
-    file: "crowskull.png",
-    author: {
-      name: "Casper Spell",
-      url: "https://casperspell.wordpress.com"
-    },
-    date: "2019-07-26",
-    description: "<p>GHOST!</p>",
-    seamless: true
-  },
-
-  {
     title: "Bat Forever",
     folder: 'random',
     file: "batforever.jpg",
@@ -64,12 +51,25 @@ const allPatterns = [
   },
 
   {
-    title: "Skull Cones",
+    title: "Crowskull",
     folder: 'casper-spell',
-    file: "skullcone.jpg",
+    file: "crowskull.webp",
     author: {
       name: "Casper Spell",
-      url: "https://casperspell.wordpress.com"
+      url: "https://www.instagram.com/p/B17o9ePlO8p"
+    },
+    date: "2019-07-26",
+    description: "<p>GHOST!</p>",
+    seamless: true
+  },
+
+  {
+    title: "Skull Cones",
+    folder: 'casper-spell',
+    file: "skullcone.webp",
+    author: {
+      name: "Casper Spell",
+      url: "https://www.instagram.com/p/B17o9ePlO8p"
     },
     date: "2019-08-19",
     seamless: true
