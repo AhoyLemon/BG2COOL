@@ -76,15 +76,8 @@ var app = new Vue({
 
     },
 
-    gForm(u, t) {
-      let self = this;
-      //self.phase = "show form";
-      self.formURL = u;
-
-      if (t == "blank") {
-        window.open(self.formURL);
-      }
-
+    trackLink(u, t) {
+      sendEvent('link clicked',t,u);
     },
 
     learnAbout() {
@@ -103,7 +96,7 @@ var app = new Vue({
       let pat = getParams()['pattern'];
       let loadPattern = false;
       if (pat) {
-        pat = pat.replace(/%20/g, " ");
+        pat = decodeURI(pat);
         self.allPatterns.forEach(function(e) {
           if (pat == e.title) {
             loadPattern = true;
@@ -120,8 +113,8 @@ var app = new Vue({
     },
 
     formatDate(d) {
-      const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-      const MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+      const allMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+      const MonthAbbr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
       let e = d.split("-");
       return MonthAbbr[parseInt(e[1] - 1)] + ' ' + e[2] + ', ' + e[0];
     }

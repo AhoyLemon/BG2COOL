@@ -194,12 +194,22 @@ const allPatterns = [
     title: "Hit With A Bowling Ball",
     folder: 'pixabay',
     file: "stars.jpg",
-    /*
-    source: {
-      name: "Getty",
-      url: "https://www.gettyimages.com"
-    },
-    */
+    date: "2019-09-05",
+    seamless: true
+  },
+
+  {
+    title: "Oh God It's Melting",
+    folder: 'pixabay',
+    file: "melting.jpg",
+    date: "2019-09-05",
+    seamless: true
+  },
+
+  {
+    title: "A Thousand Of These Things",
+    folder: 'pixabay',
+    file: "rects.jpg",
     date: "2019-09-05",
     seamless: true
   },
