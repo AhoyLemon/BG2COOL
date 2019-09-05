@@ -72,11 +72,11 @@ var app = new Vue({
 
       self.copyMatch = self.coolCSS;
 
-      sendEvent('CSS Copied',pattern.title,pattern.title);
+      sendEvent('CSS Copied',self.bg.title,self.bg.title);
 
     },
 
-    trackLink(u, t) {
+    trackLink(t, u) {
       sendEvent('link clicked',t,u);
     },
 
@@ -87,7 +87,7 @@ var app = new Vue({
       let a = new Audio('audio/bylemon.mp3');
       a.play();
       
-      sendEvent('About Clicked',pattern.title,pattern.title);
+      sendEvent('About Clicked',self.bg.title,self.bg.title);
 
     },
 

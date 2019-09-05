@@ -23,7 +23,7 @@ mixin formatDate(d)
 
 
 mixin link(title,url)
-  a(href=url target="_blank" nofollow noopener)= title
+  a.link(href=url target="_blank" noopener @click="trackLink('"+title+"', '"+url+"')")= title
 
 mixin card(title, url, background, logo, launched)
   figure.card

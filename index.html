@@ -129,8 +129,13 @@
             <div class="lemon name">Lemon</div>
           </div>
           <p>
-             Visit <a class="sitelink" href="https://ahoylemon.xyz" target="_blank">ahoylemon.xyz</a> for more dumb websites like this one.</p>
-          <p> <a href="https://ahoylemon.xyz" target="_blank"><img class="wedge" src="svg/wedge-alone.svg"></a>The patterns for this website have been sourced from various places. Do you want to <a class="sitelink" href="https://forms.gle/8Dorg9pEQsUE4mmX6" target="_blank">add a pattern</a> to this site? Or do you want to <a class="sitelink" href="https://forms.gle/BXHP81Lkh1r45DQf9" target="_blank">report an issue</a>? Or maybe you just want to check out the <a class="sitelink" href="https://github.com/AhoyLemon/BG2COOL" target="_blank">GitHub Repo</a>.</p>
+             Visit 
+            <!--a.sitelink(href="https://ahoylemon.xyz" target="_blank") ahoylemon.xyz--><a class="link" href="https://ahoylemon.xyz" target="_blank" noopener="noopener" @click="trackLink('ahoylemon.xyz', 'https://ahoylemon.xyz')">ahoylemon.xyz</a> for more dumb websites like this one.
+          </p>
+          <p> <a href="https://ahoylemon.xyz" target="_blank"><img class="wedge" src="svg/wedge-alone.svg"></a>The patterns for this website have been sourced from various places. Do you want to <a class="link" href="https://forms.gle/8Dorg9pEQsUE4mmX6" target="_blank" noopener="noopener" @click="trackLink('add a pattern', 'https://forms.gle/8Dorg9pEQsUE4mmX6')">add a pattern</a> to this site? Or do you want to 
+            <!--a.sitelink(href="https://forms.gle/BXHP81Lkh1r45DQf9" target="_blank") report an issue--><a class="link" href="https://forms.gle/BXHP81Lkh1r45DQf9" target="_blank" noopener="noopener" @click="trackLink('report an issue', 'https://forms.gle/BXHP81Lkh1r45DQf9')">report an issue</a>? Or maybe you just want to check out the 
+            <!--a.sitelink(href="https://github.com/AhoyLemon/BG2COOL" target="_blank") GitHub Repo--><a class="link" href="https://github.com/AhoyLemon/BG2COOL" target="_blank" noopener="noopener" @click="trackLink('GitHub Repo', 'https://github.com/AhoyLemon/BG2COOL')">GitHub Repo</a>.
+          </p>
         </article>
       </main>
       <section class="patterns">
@@ -144,8 +149,11 @@
       </section>
     </div>
     <div class="javascripts">
-      <script src="js/libraries/vue.full.js"></script>
-      <script>const testing = true;</script>
+      <script src="js/libraries/vue.min.js"></script>
+      <script>
+        const testing = false;
+        
+      </script>
       <script type="text/javascript">
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -156,7 +164,7 @@
         ga('send', 'pageview');
         
       </script>
-      <script src="js/min/bg2cool.min.js?updated2019-08-05@14:59:15"></script>
+      <script src="js/min/bg2cool.min.js?updated2019-08-05@15:18:45"></script>
       <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
       <script>
         TrackJS.install({
