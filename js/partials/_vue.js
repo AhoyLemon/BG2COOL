@@ -48,13 +48,12 @@ var app = new Vue({
       self.bg.title = pattern.title;
       self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
 
+      if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?pattern=' + pattern.title;
+        window.history.pushState({path:newurl},'',newurl);
+      }
 
-      dataLayer.push(
-        [
-          {'Pattern Name': pattern.title}
-        ]
-      );
-
+     sendEvent('Pattern Clicked',pattern.title,pattern.title);
 
     },
 
@@ -71,6 +70,8 @@ var app = new Vue({
       textArea.remove();
 
       self.copyMatch = self.coolCSS;
+
+      sendEvent('CSS Copied',pattern.title,pattern.title);
 
     },
 
@@ -92,11 +93,7 @@ var app = new Vue({
       let a = new Audio('audio/bylemon.mp3');
       a.play();
       
-      dataLayer.push(
-        [
-          {'About Clicked': '1'}
-        ]
-      );
+      sendEvent('About Clicked',pattern.title,pattern.title);
 
     },
 

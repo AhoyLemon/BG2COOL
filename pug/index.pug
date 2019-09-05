@@ -20,31 +20,6 @@ html(lang="en")
       include partials/_nopattern.pug
       include partials/_current.pug
       include partials/_about.pug
-      //-include partials/_form.pug
-
-      section.patterns
-        .pattern-holder
-          each pattern,index in allPatterns
-            //article.pattern()
-            figure.pattern(v-bind:class="{current: activeTitle == '"+pattern.title+"'}" style="background-image:url(patterns/"+pattern.folder+"/"+pattern.file+")" v-on:click="setPattern("+JSON.stringify(pattern)+")")
-              .name-holder
-                h2.name= pattern.title
-
-      //-.current-pattern(v-if="currentPattern && currentPattern != {}")
-        .inner
-          span.label Current Pattern
-          .name(v-text="currentPattern.title")
-          span.author-holder(v-if="currentPattern.author")
-            span by 
-            a(:href="currentPattern.author.url")
-              span.author(v-text="currentPattern.author.name")
-          .tags(v-if="currentPattern.tags")
-            label Tags:
-            span.tag(v-for="tag in currentPattern.tags")
-              a(href="#" v-text="tag")
-          
-          .download-holder
-            a.download(href="#") Download This
-
+      include partials/_sidebar.pug
 
     include partials/_javascripts
