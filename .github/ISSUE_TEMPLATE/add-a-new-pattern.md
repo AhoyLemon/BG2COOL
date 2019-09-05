@@ -7,7 +7,11 @@ assignees: AhoyLemon
 
 ---
 
-Include the image with your pattern. Also provide the following information...
+## PROVIDE THE IMAGE HERE.
+
+Either with a URL or by pasting it directly in this field.
+
+Then give me the following information:
 
 ```
 {
@@ -26,6 +30,7 @@ Include the image with your pattern. Also provide the following information...
 
 
 An example:
+```
 {
     title: "Skull Cones",
     folder: 'casper-spell',
@@ -38,3 +43,4 @@ An example:
     seamless: true
     tags: ['skull','goth','candy']
   },
+```
