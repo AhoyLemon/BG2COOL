@@ -1,5 +1,43 @@
 main.nopattern { background:#131313; @include flex-center();
-  h1 { font-family: 'Oswald', sans-serif; font-size:140px; line-height: 100%; text-align: center; background-image:url(../patterns/random/stars.gif);
-    color: white; background-clip: text; -webkit-text-fill-color: transparent;  background-size: 12%;
+
+  //video { @include position(absolute,0,0,0,0); width:100%; height:100%; }
+
+  //background-image:url(https://lh3.googleusercontent.com/-EIqKvwBEOQc/XW8u4-FhUnI/AAAAAAAAjkU/8NTAXKpsxnwuRTNnVSXiycQg9j2z6rTewCK8BGAs/s466/2019-09-03.gif); //background-size:cover; background-position: center;
+
+  .video-holder { overflow: hidden; @include position(absolute,0,0,0,0) }
+  video { position: absolute; top:0; width: auto; height: 100%; }
+
+  article { max-width: 490px;}
+  h1 { font-family: $headline; font-size:110px; line-height: 90%; letter-spacing: -0.06em; text-align:justify;// background-image:url(../patterns/random/stars.gif);
+    //color: white; background-clip: text; -webkit-text-fill-color: transparent;  background-size: 12%;
   }
+
+
+  article { box-shadow: -8em 8em 0 rgba(magenta,0.8), 8em -8em 0 rgba(cyan,0.8); 
+    animation-name: unminimal;
+    animation-duration: 10s;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: forward;
+    animation-timing-function: linear;
+    //animation-fill-mode: both;
+  }
+
+}
+
+
+@keyframes unminimal {
+  0%   { box-shadow: -8em -8em 0 rgba(magenta,0.8), 4em 4em 0 rgba(cyan,0.8); }
+  25%  {  box-shadow: 4em -4em 0 rgba(magenta,0.8), -8em 8em 0 rgba(cyan,0.8);}
+  50%  {  box-shadow: 8em 8em 0 rgba(magenta,0.8), -4em -4em 0 rgba(cyan,0.9);}
+  75%  { box-shadow: -4em 4em 0 rgba(magenta,0.6), 8em -8em 0 rgba(cyan,0.8); }
+  100%  { box-shadow: -8em -8em 0 rgba(magenta,0.8), 4em 4em 0 rgba(cyan,0.8); }
+}
+
+@media (orientation: landscape) { 
+  .below { display:none; }
+}
+
+@media (orientation: portrait) { 
+  .to-the-right { display: none; }
 }

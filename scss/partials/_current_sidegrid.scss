@@ -1,9 +1,9 @@
 body { padding:0; }
-main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', sans-serif; font-size:18px; background-position: center; box-shadow: inset -0.5em 0 0.5em rgba(0,0,0,.7);
-
+main { font-family: $font; font-size:18px; background-position: center;
+  button { font-family: $font;}
   overflow-y: auto;
 
-  article { background:white; margin:3em auto; width:100%; max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.15); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
+  article { background:white; margin:3em auto; width:100%; max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.2); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
     box-sizing: content-box; max-width: 580px; padding:2em; position: relative;
   }
 
@@ -63,10 +63,13 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   .code-holder { overflow: hidden; position: relative;
     pre { background:#111; color:#eee; padding:1em; overflow-x: auto; max-width: 100%; }
 
-    button { @include position(absolute,6px,6px); cursor: pointer;
+    button { @include position(absolute,6px,6px); 
       background-image: linear-gradient(top, #f4f1ee, #fff); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
-      &:hover, &:focus { background-image: linear-gradient(top, #74dccf, #c2f3ed); }
-      &:active { box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); }
+
+      &:not(:disabled) { cursor: pointer;
+        &:hover, &:focus { background-image: linear-gradient(top, #74dccf, #c2f3ed); }
+        &:active { box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px -2px -4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); }
+      }
     }
   }
 
@@ -117,9 +120,8 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
     box-shadow: inset 0 0 0.5em rgba(0,0,0,0.65), 1em 1em 1em rgba(0,0,0,0.5); 
   }
 
-  .name.cool { 
-    //background-attachment: fixed;
-    color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Oswald', sans-serif; font-weight: 900; font-size:100px; line-height: 100%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
+  .name.cool {  color: white; background-clip: text; -webkit-text-fill-color: transparent; font-family:$headline; font-size:110px; letter-spacing: -0.02em; line-height: 90%; text-transform: uppercase; -webkit-text-stroke-width: 1px; -webkit-text-stroke-color: black; text-shadow: none !important; }
+
   label.cool { transition:background-size 0.5s ease; color:white !important; text-shadow: -0.1em -0.1em 0.1em black, 0.1em 0.1em 0.1em black;
     &:hover, &:focus { background-size:120% !important; }
     .check { opacity:0.25; }
@@ -132,3 +134,14 @@ main { @include position(fixed,0,($boxSize * 2), 0, 0); font-family: 'Nunito', s
   .name.uncool { font-size:32px; color:black; text-transform: none; background:transparent !important; }
   label.uncool { background-image: linear-gradient(top, #f4f1ee, #fff) !important; box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5); }
 }
+
+
+
+@media (orientation: landscape) { 
+  main { @include position(fixed,0,($boxSize * 2), 0, 0); box-shadow: inset -0.5em 0 0.5em rgba(0,0,0,.7); }
+}
+
+@media (orientation: portrait) { 
+  main { @include position(fixed,0,0,$boxSize, 0); box-shadow: inset 0 -1em 1em rgba(0,0,0,.4); }
+}
+

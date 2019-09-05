@@ -2,22 +2,168 @@
 <html lang="en">
   <head>
     <title>BG2 😎 COOL</title>
-    <link href="https://fonts.googleapis.com/css?family=Lobster&amp;display=swap" rel="stylesheet">
-    <style>
-      * { font-family: 'Lobster', cursive; }
-      html { background-image:url(img/bg/splash.jpg); background-size:cover; background-position:center; height:100vh; }
-      @keyframes strobeText{
-        0%{     color: transparent;    }
-        20%{     color: #ff0000;    }
-        40%{     color: #00ff00;    }
-        60%{     color: #0000ff;    }
-        80%{     color: #ffffff;    }
-      }
-      .strobe { animation:strobeText 1s infinite; }
-      h1 { color:pink; text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.5); position:absolute; right:0; bottom:2vh; left:0; text-align:center; font-size:6vw; }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Oswald:700" rel="stylesheet">
+    <link href="css/bg2cool.css" rel="stylesheet">
+    <meta name="description" content="a library of cool seamless patterns for your radical website">
   </head>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#009bdf">
+  <meta name="theme-color" content="#009bdf">
+  <!-- Twitter-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@AhoyLemon">
+  <meta name="twitter:title" content="BG2 😎 COOL">
+  <meta name="twitter:description" content="a library of cool seamless patterns for your radical website">
+  <meta name="twitter:image" content="https://bg2.cool/og-wide.png">
+  <meta name="twitter:url" content="https://bg2.cool">
+  <meta property="og:title" content="BG2 😎 COOL">
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:description" content="a library of cool seamless patterns for your radical website">
+  <meta property="og:url" content="https://bg2.cool">
+  <meta property="og:image" content="https://bg2.cool/og-wide.png">
   <body>
-    <h1 class="strobe">website coming soon.</h1>
+    <div id="app" v-cloak>
+      <main class="nopattern" v-if="!currentPattern">
+        <div class="video-holder">
+          <video id="NeonVideo" loop muted poster="patterns/neonsnap.jpg">
+            <source src="patterns/neon.mp4" type="video/mp4">
+          </video>
+        </div>
+        <article>
+          <h1> <span class="one">THAT'S</span> <span class="two">ENOUGH</span> <span class="three">FUCKING</span> <span class="four">MINIMALISM.</span></h1>
+          <p>
+            I don't know what they told you, but it's actually still legal for modern websites to be fun and interesting to look at.
+             And today, you and <strong>BG2.COOL</strong> are going to make one together.
+          </p>
+          <p>
+             Browse through the patterns <span class="to-the-right">to the right, </span><span class="below">below, swipe right for more, </span>play with the options, and make a radical website.</p>
+        </article>
+      </main>
+      <main v-else-if="currentPattern &amp;&amp; phase != 'about'" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject">
+        <article v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject">
+          <button class="hamburger" v-on:click="learnAbout()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+              <circle class="fill" cx="50.6" cy="49.7" r="42"></circle>
+              <path class="outline" d="M50 96C24.6 96 4 75.4 4 50S24.6 4 50 4s46 20.6 46 46-20.6 46-46 46zm0-86.2C27.8 9.8 9.8 27.8 9.8 50s18 40.3 40.2 40.3S90.3 72.2 90.3 50 72.2 9.8 50 9.8z"></path>
+              <g class="open" id="HamburgerOpen">
+                <path class="question-mark" d="M47.6 58.9c-.6-.7-.9-1.6-.9-2.8 0-2.4.4-4.3 1.3-5.9.9-1.6 2.1-3.3 3.8-5.2 1.2-1.4 2.2-2.6 2.7-3.6.6-.9.9-2 .9-3.2 0-1.3-.5-2.3-1.4-3.1-1-.7-2.3-1.1-3.9-1.1-1.5 0-2.9.3-4.1.9-1.3.6-3 1.5-5.1 2.8-1.3.7-2.4 1.1-3.3 1.1-1 0-1.8-.4-2.5-1.3s-1-1.9-1-3.1c0-.8.1-1.5.5-2.1.3-.6.8-1.1 1.4-1.6 2-1.6 4.4-2.9 7-3.8 2.7-.9 5.3-1.4 8-1.4 2.9 0 5.4.5 7.7 1.5s4.1 2.4 5.3 4.2c1.3 1.8 1.9 3.8 1.9 6 0 1.7-.3 3.3-1 4.7-.7 1.4-1.5 2.6-2.4 3.7-.9 1-2.2 2.3-3.7 3.8-1.8 1.6-3.1 3-4 4.1-.9 1.1-1.4 2.3-1.7 3.6-.2.9-.6 1.6-1.1 2-.6.5-1.3.7-2.1.7-1 .1-1.8-.2-2.3-.9zm-1.7 14.8c-1.1-1.1-1.7-2.6-1.7-4.3 0-1.7.6-3.1 1.7-4.3s2.5-1.7 4.2-1.7c1.7 0 3 .6 4.2 1.7 1.1 1.1 1.7 2.6 1.7 4.3 0 1.7-.6 3.1-1.7 4.3-1.1 1.1-2.5 1.7-4.2 1.7-1.7 0-3.1-.5-4.2-1.7z"></path>
+              </g>
+              <g class="close" id="HamburgerClose">
+                <path class="x" d="M70.3 69c0 1.3-.5 2.4-1.5 3.3-1 .9-2.1 1.4-3.4 1.4-1.3 0-2.4-.6-3.4-1.7L49.6 56.9 37 72.1c-1 1.1-2.1 1.7-3.4 1.7-1.2 0-2.3-.5-3.3-1.4-1-.9-1.5-2.1-1.5-3.3 0-1.1.4-2.1 1.2-3L43.5 50l-13-15.8c-.8-1-1.3-2-1.3-3 0-1.3.5-2.4 1.5-3.3 1-.9 2.1-1.4 3.3-1.4 1.3 0 2.5.6 3.4 1.7l12.1 14.6 12-14.6c1-1.1 2.1-1.7 3.4-1.7 1.2 0 2.3.5 3.3 1.4 1 .9 1.5 2.1 1.5 3.3 0 1.1-.4 2.1-1.2 3l-13 15.6L69 65.9c.9 1 1.3 2 1.3 3.1z"></path>
+              </g>
+            </svg>
+          </button>
+          <div class="name-holder"><span class="label">Current Pattern</span>
+            <div class="name" v-bind:class="{ cool: bg.show.headline, uncool:!bg.show.headline }" v-bind:style="styleObject"><span v-text="currentPattern.title"></span></div>
+          </div>
+          <div class="description">
+            <div class="author-holder" v-if="currentPattern.author"><span>by </span><a :href="currentPattern.author.url" target="_blank"><span class="author" v-text="currentPattern.author.name"></span></a></div>
+            <div class="source-holder" v-if="currentPattern.source"><span>from </span><a :href="currentPattern.source.url" target="_blank"><span class="author" v-text="currentPattern.source.name"></span></a></div>
+            <div class="date-holder"><span>added </span>
+              <time>{{formatDate(currentPattern.date)}}</time>
+            </div>
+          </div>
+          <div class="toggles">
+            <div class="option-desc">Put that pattern in the...</div>
+            <div class="labels">
+              <label v-bind:class="{active: bg.show.body, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">body</span>
+                <input type="checkbox" v-model="bg.show.body"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.headline, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">headline</span>
+                <input type="checkbox" v-model="bg.show.headline"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.button, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">buttons</span>
+                <input type="checkbox" v-model="bg.show.button"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.borders, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">borders</span>
+                <input type="checkbox" v-model="bg.show.borders"><span class="check">✔</span>
+              </label>
+              <label v-bind:class="{active: bg.show.inner, cool: bg.show.button, uncool: !bg.show.button}" v-bind:style="styleObject"><span class="option-name">article</span>
+                <input type="checkbox" v-model="bg.show.inner"><span class="check">✔</span>
+              </label>
+            </div>
+          </div>
+          <div class="ranges">
+            <label v-if="!bg.cover"><span class="prop">Size</span>
+              <input type="range" min="5" :max="settings.maxSize" v-model="bg.size">
+            </label>
+            <label><span class="prop">Horizontal</span>
+              <input type="range" min="0" max="100" v-model="bg.positionHorizontal">
+            </label>
+            <label><span class="prop">Vertical</span>
+              <input type="range" min="0" max="100" v-model="bg.positionVertical">
+            </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Size</span>
+              <input type="range" min="2" max="100" v-model="bg.borders.width">
+            </label>
+            <label v-if="bg.show.borders"><span class="prop">Border Slice</span>
+              <input type="range" min="1" max="40" v-model="bg.borders.slice">
+            </label>
+          </div>
+          <div class="code-holder">
+            <pre v-if="coolCSS"><code id="CopyCode" v-html="coolCSS"></code></pre>
+            <button @click="copyCSS()" v-bind:disabled="cssCopyMatch"> <span v-if="cssCopyMatch">Copied ✔</span><span v-else>Copy CSS</span></button>
+          </div>
+          <div class="serve-box" v-if="coolCSS">
+            <div class="serve-desc">And serve that file from</div>
+            <div class="serve-toggle"><span @click="bg.localFile = false">bg2.cool</span>
+              <label class="toggle" v-bind:class="{'left' : !bg.localFile, 'right' : bg.localFile}">
+                <input type="checkbox" v-model="bg.localFile"><span class="visual-toggle"></span>
+              </label><span @click="bg.localFile = true">my website</span>
+            </div>
+            <div class="button-holder" v-if="bg.localFile"><a class="button" :href="bg.pattern" download>Download file ↓</a></div>
+          </div>
+        </article>
+      </main>
+      <main class="about" v-else-if="phase == 'about'" v-bind:class="{ cool: bg.show.body, uncool:!bg.show.body }" v-bind:style="styleObject">
+        <!--.lemon-coversheet-->
+        <article v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject">
+          <div class="name-holder"><span class="label">This Site By</span>
+            <div class="lemon name">Lemon</div>
+          </div>
+          <p>
+             Visit <a class="sitelink" href="https://ahoylemon.xyz" target="_blank">ahoylemon.xyz</a> for more dumb websites like this one.</p>
+          <p> <a href="https://ahoylemon.xyz" target="_blank"><img class="wedge" src="svg/wedge-alone.svg"></a>The patterns for this website have been sourced from various places. Do you want to <a class="sitelink" href="https://forms.gle/8Dorg9pEQsUE4mmX6" target="_blank">add a pattern</a> to this site? Or do you want to <a class="sitelink" href="https://forms.gle/BXHP81Lkh1r45DQf9" target="_blank">report an issue</a>? Or maybe you just want to check out the <a class="sitelink" href="https://github.com/AhoyLemon/BG2COOL" target="_blank">GitHub Repo</a>.</p>
+        </article>
+      </main>
+      <section class="patterns">
+        <div class="pattern-holder">
+          <figure class="pattern" v-for="pattern in allPatterns" v-bind:class="{current: activeTitle == pattern.title }" v-bind:style="{backgroundImage: 'url(patterns/'+pattern.folder+'/'+pattern.file+')'}" @click="setPattern(pattern)">
+            <div class="name-holder">
+              <h2 class="name" v-text="pattern.title"></h2>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="javascripts">
+      <script src="js/libraries/vue.full.js"></script>
+      <script>const testing = true;</script>
+      <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+        ga('create', 'UA-15129990-33', 'auto');
+        ga('send', 'pageview');
+        
+      </script>
+      <script src="js/min/bg2cool.min.js"></script>
+      <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+      <script>
+        TrackJS.install({
+          token: "9947e081831c42b8aeb3a5fb81a152c4",
+          application: "bg2cool"
+        });
+      </script>
+    </div>
   </body>
 </html>

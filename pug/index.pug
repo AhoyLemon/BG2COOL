@@ -2,26 +2,24 @@
 - var siteTitle = "BG2 😎 COOL"
 - var siteURL = "https://bg2.cool"
 - var fPlusURL = ""
-- var description = ""
+- var description = "a library of cool seamless patterns for your radical website"
 - var d = new Date()
 - var lastUpdated = d.getFullYear() + '-' + (d.getMonth()<10?'0':'') + d.getMonth() + '-' + (d.getDate()<10?'0':'') + d.getDate() + '@' + (d.getHours()<10?'0':'') + d.getHours() + ':' + (d.getMinutes()<10?'0':'') + d.getMinutes() + ':' + (d.getSeconds()<10?'0':'') + d.getSeconds()
 
+include partials/_patterns
+include partials/_mixins
+
 doctype html
 html(lang="en")
-  head
-    title BG2 😎 COOL
-    link(href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet")
-    style.
-      * { font-family: 'Lobster', cursive; }
-      html { background-image:url(img/bg/splash.jpg); background-size:cover; background-position:center; height:100vh; }
-      @keyframes strobeText{
-        0%{     color: transparent;    }
-        20%{     color: #ff0000;    }
-        40%{     color: #00ff00;    }
-        60%{     color: #0000ff;    }
-        80%{     color: #ffffff;    }
-      }
-      .strobe { animation:strobeText 1s infinite; }
-      h1 { color:pink; text-shadow: -1px -1px 0 rgba(0,0,0,0.5), 4px 4px 0 rgba(0,0,0,0.5); position:absolute; right:0; bottom:2vh; left:0; text-align:center; font-size:6vw; }
+  
+  include partials/_head.pug
+    
   body
-    h1.strobe website coming soon.
+    #app(v-cloak)
+
+      include partials/_nopattern.pug
+      include partials/_current.pug
+      include partials/_about.pug
+      include partials/_sidebar.pug
+
+    include partials/_javascripts

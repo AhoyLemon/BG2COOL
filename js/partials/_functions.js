@@ -137,6 +137,19 @@ function testChance(chance) {
   }
 }
 
+function getParams() {
+  var vars = {};
+  var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+      vars[key] = value;
+  });
+  if (vars && vars != {}) {
+    return vars;
+  } else {
+    return false;
+  }
+}
+
+
 function sendEvent(c, a, l, v) {
   if (v) {
     ga('send', 'event', { eventCategory: c, eventAction: a, eventLabel: l, eventValue:v });

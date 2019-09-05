@@ -2,7 +2,7 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
 
   article(v-bind:class="{ cool: bg.show.inner, uncool:!bg.show.inner, 'cool-borders': bg.show.borders }" v-bind:style="styleObject")
 
-    button.hamburger(v-on:click="phase = 'about'")
+    button.hamburger(v-on:click="learnAbout()")
       svg(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100")
         circle.fill(cx="50.6" cy="49.7" r="42")
         path.outline(d="M50 96C24.6 96 4 75.4 4 50S24.6 4 50 4s46 20.6 46 46-20.6 46-46 46zm0-86.2C27.8 9.8 9.8 27.8 9.8 50s18 40.3 40.2 40.3S90.3 72.2 90.3 50 72.2 9.8 50 9.8z")
@@ -80,7 +80,9 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
     .code-holder
       pre(v-if="coolCSS")
         code#CopyCode(v-html="coolCSS")
-      button(@click="copyCSS()") Copy CSS
+      button(@click="copyCSS()" v-bind:disabled="cssCopyMatch") 
+        span(v-if="cssCopyMatch") Copied ✔
+        span(v-else) Copy CSS
 
     .serve-box(v-if="coolCSS")
       .serve-desc And serve that file from

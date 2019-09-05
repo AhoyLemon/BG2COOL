@@ -8,7 +8,8 @@ var app = new Vue({
       maxSize: 120
     },
     formURL: null,
-    cssCopied: false,
+    copyMatch: null,
+    allPatterns: allPatterns,
     bg: {
       pattern: null,
       title: null,
@@ -37,6 +38,8 @@ var app = new Vue({
     setPattern(pattern) {
       let self = this;
       self.phase = 'browse patterns';
+      self.cssCopied = false;
+
       self.currentPattern = pattern;
       self.activeTitle = pattern.title;
       
@@ -45,21 +48,32 @@ var app = new Vue({
 
       self.bg.title = pattern.title;
       self.bg.pattern = "patterns/"+pattern.folder+"/"+pattern.file;
+
+      if (history.pushState) {
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?pattern=' + pattern.title;
+        window.history.pushState({path:newurl},'',newurl);
+      }
+
+     sendEvent('Pattern Clicked',pattern.title,pattern.title);
+
     },
 
     copyCSS() {
-      var CodeBlock = document.querySelector('#CopyCode');  
-      var range = document.createRange();  
-      range.selectNode(CodeBlock);  
-      window.getSelection().addRange(range);  
-      try {  
-        // Now that we've selected the anchor text, execute the copy command  
-        var successful = document.execCommand('copy');  
-        var msg = successful ? 'successful' : 'unsuccessful';  
-        console.log('Copy email command was ' + msg);  
-      } catch(err) {  
-        alert('Oops, unable to copy');  
-      }  
+      
+      let self = this;
+
+      const copyText = document.getElementById("CopyCode").textContent;
+      const textArea = document.createElement('textarea');
+      textArea.textContent = copyText;
+      document.body.append(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+
+      self.copyMatch = self.coolCSS;
+
+      sendEvent('CSS Copied',pattern.title,pattern.title);
+
     },
 
     gForm(u, t) {
@@ -71,6 +85,38 @@ var app = new Vue({
         window.open(self.formURL);
       }
 
+    },
+
+    learnAbout() {
+      let self = this;
+      self.phase = 'about';
+
+      let a = new Audio('audio/bylemon.mp3');
+      a.play();
+      
+      sendEvent('About Clicked',pattern.title,pattern.title);
+
+    },
+
+    matchQuery(z) {
+      let self = this;
+      let pat = getParams()['pattern'];
+      let loadPattern = false;
+      if (pat) {
+        pat = pat.replace(/%20/g, " ");
+        self.allPatterns.forEach(function(e) {
+          if (pat == e.title) {
+            loadPattern = true;
+            self.setPattern(e);
+
+          }
+        });
+      }
+    },
+
+    backButton(e) {
+      let self = this;
+      this.matchQuery(e);
     },
 
     formatDate(d) {
@@ -185,12 +231,57 @@ var app = new Vue({
       return pre;
     },
 
+    cssCopyMatch() {
+      let self = this;
+      if (self.coolCSS == self.copyMatch) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
 
 
   },
 
   mounted: function() {
     let self = this;
+
+
+
+    let pat = getParams()['pattern'];
+    let loadPattern = false;
+    if (pat) {
+      pat = pat.replace(/%20/g, " ");
+      self.allPatterns.forEach(function(e) {
+        if (pat == e.title) {
+          loadPattern = true;
+          self.setPattern(e);
+
+        }
+      });
+    }
+
+    if (!loadPattern) {
+      var video = document.getElementById("NeonVideo");
+      video.oncanplaythrough = function() {
+          video.muted = true;
+          video.play();
+      };
+    }
+
+    window.onpopstate = function(event) {
+      self.backButton(event);
+    };
+  },
+  
+
+  created () {
+    let self = this;
+    document.addEventListener("backbutton", self.backButton(), false);
+  },
+  beforeDestroy () {
+    document.removeEventListener("backbutton", this.backButton());
   }
 
 });
