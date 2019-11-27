@@ -280,6 +280,11 @@ main.nopattern {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
+  @media (max-width: 666px) {
+    main.nopattern article {
+      margin: 0; }
+    main.nopattern .video-holder {
+      display: none; } }
   main.nopattern .video-holder {
     overflow: hidden;
     position: absolute;
@@ -300,6 +305,9 @@ main.nopattern {
     line-height: 90%;
     letter-spacing: -0.06em;
     text-align: justify; }
+    @media (max-width: 666px) {
+      main.nopattern h1 {
+        font-size: 18vw; } }
   main.nopattern article {
     -webkit-box-shadow: -8em 8em 0 rgba(255, 0, 255, 0.8), 8em -8em 0 rgba(0, 255, 255, 0.8);
     box-shadow: -8em 8em 0 rgba(255, 0, 255, 0.8), 8em -8em 0 rgba(0, 255, 255, 0.8);
@@ -374,7 +382,7 @@ main {
   main article {
     background: white;
     margin: 3em auto;
-    width: 100%;
+    width: calc(100% - 4em);
     max-width: 666px;
     /* padding:2em; */
     border: 2px solid rgba(0, 0, 0, 0.2);

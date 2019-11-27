@@ -3,7 +3,7 @@ main { font-family: $font; font-size:18px; background-position: center;
   button { font-family: $font;}
   overflow-y: auto;
 
-  article { background:white; margin:3em auto; width:100%; max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.2); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
+  article { background:white; margin:3em auto; width:calc(100% - 4em); max-width: 666px; /* padding:2em; */ border:2px solid rgba(0,0,0,0.2); box-shadow: 1em 1em 1em rgba(0,0,0,.5);
     box-sizing: content-box; max-width: 580px; padding:2em; position: relative;
   }
 
