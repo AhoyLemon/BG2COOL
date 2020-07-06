@@ -1,4 +1,4 @@
-const siteURL = "http://bg2.cool"
+const siteURL = "https://ahoylemon.github.io/BG2COOL";
 
 const allPatterns = [
   

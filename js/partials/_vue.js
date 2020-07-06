@@ -156,7 +156,7 @@ var app = new Vue({
     coolCSS() {
       let self = this;
       let pre = "";
-
+ 
       let patternURL = "";
       if (self.bg.localFile) {
         //patternURL = self.bg.pattern;
@@ -238,9 +238,8 @@ var app = new Vue({
   },
 
   mounted: function() {
+
     let self = this;
-
-
 
     let pat = getParams()['pattern'];
     let loadPattern = false;

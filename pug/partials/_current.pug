@@ -87,7 +87,7 @@ main(v-else-if="currentPattern && phase != 'about'" v-bind:class="{ cool: bg.sho
     .serve-box(v-if="coolCSS")
       .serve-desc ...and serve that file from
       .serve-toggle
-        span(@click="bg.localFile = false") bg2.cool
+        span(@click="bg.localFile = false") BG2COOL
         label.toggle(v-bind:class="{'left' : !bg.localFile, 'right' : bg.localFile}")
           input(type="checkbox" v-model="bg.localFile")
           span.visual-toggle
